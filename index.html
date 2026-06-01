@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AESTRA Research — EA Codebooks for LLM-Assisted Qualitative Analysis</title>
+<meta name="description" content="Open-source codebooks for Existential Analysis qualitative research with Large Language Models. Längle's Four Fundamental Motivations and Twelve Fundamental Existential Prerequisites.">
+<style>
+:root {
+  --text: #1a1a1a;
+  --muted: #555;
+  --line: #d9d9d9;
+  --bg: #fafafa;
+  --accent: #2a4d6e;
+  --accent-bg: #eef3f8;
+  --serif: Charter, Georgia, Cambria, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html { font-size: 17px; }
+body {
+  font-family: var(--serif);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+  margin: 0;
+  padding: 2.5rem 1.5rem 4rem;
+  -webkit-font-smoothing: antialiased;
+}
+main {
+  max-width: 720px;
+  margin: 0 auto;
+}
+header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+h1 {
+  font-family: var(--sans);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.25rem;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.tagline {
+  font-style: italic;
+  color: var(--muted);
+  margin: 0;
+  font-size: 1.05rem;
+}
+h2 {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+  color: var(--accent);
+}
+h3 {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0.5rem;
+}
+p { margin: 0 0 0.85rem; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { text-decoration: none; }
+.intro {
+  font-size: 1.05rem;
+  margin-bottom: 1.5rem;
+}
+.codebooks {
+  display: grid;
+  gap: 1.25rem;
+  margin: 1rem 0 0;
+}
+.codebook {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+}
+.codebook h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+.codebook p { font-size: 0.97rem; }
+.meta {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0.75rem 0;
+  line-height: 1.7;
+}
+.meta dt {
+  display: inline;
+  font-weight: 600;
+}
+.meta dd {
+  display: inline;
+  margin: 0;
+}
+.meta dt::after { content: " "; }
+.meta dd::after { content: " · "; }
+.meta dd:last-of-type::after { content: ""; }
+.dois {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+}
+.cta-row {
+  margin-top: 0.85rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.btn {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  text-decoration: none;
+  background: #fff;
+  color: var(--accent);
+  transition: background 0.15s;
+}
+.btn:hover { background: var(--accent-bg); text-decoration: none; }
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #1f3a55; color: #fff; }
+ol.use-steps {
+  padding-left: 1.5rem;
+  margin: 0.75rem 0;
+}
+ol.use-steps li { margin-bottom: 0.45rem; }
+.companion {
+  background: var(--accent-bg);
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  font-size: 0.97rem;
+}
+.companion cite { font-style: italic; }
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.87rem;
+  color: var(--muted);
+  font-family: var(--sans);
+}
+footer p { margin: 0 0 0.5rem; }
+code {
+  font-family: "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.88em;
+  background: #efefef;
+  padding: 0.05em 0.35em;
+  border-radius: 2px;
+}
+@media (max-width: 480px) {
+  body { padding: 1.5rem 1rem 3rem; }
+  html { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <h1>AESTRA Research</h1>
+  <p class="tagline">Existential Analysis Codebooks for LLM-Assisted Qualitative Analysis</p>
+</header>
+
+<section class="intro">
+  <p>Two open-source codebooks supporting the WCET4 (2026) paper <em>"Do You Understand?!" Best Practices using Artificial Intelligence in Research (and Life)</em> by Graham Nelson-Zutter, MSc. Both are downloadable, citable, and licensed CC&nbsp;BY&nbsp;4.0 for reuse in your own research.</p>
+</section>
+
+<section class="codebooks">
+
+<article class="codebook">
+  <h3>EA 4FM Codebook</h3>
+  <p>A structured codebook for scoring participant testimony against <strong>Längle's Four Fundamental Motivations</strong> — the foundational framework. Built by multi-LLM cross-validation across Claude Sonnet 4.5, ChatGPT 5 Thinking, and Gemini 2.5 Turbo, using four primary Längle sources (1992, 2002, 2003, 2011). Every code traces to a verbatim Längle quote with citation.</p>
+  <dl class="meta">
+    <dt>Concept DOI:</dt><dd class="dois"><a href="https://doi.org/10.5281/zenodo.20483207">10.5281/zenodo.20483207</a></dd>
+    <dt>GitHub:</dt><dd><a href="https://github.com/aestra-research/4fm-codebook">aestra-research/4fm-codebook</a></dd>
+    <dt>License:</dt><dd>CC BY 4.0</dd>
+  </dl>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://github.com/aestra-research/4fm-codebook/raw/main/codebook/4fm-master.json">Download MASTER JSON</a>
+    <a class="btn" href="https://github.com/aestra-research/4fm-codebook">Browse on GitHub</a>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20483207">Cite via Zenodo</a>
+  </div>
+</article>
+
+<article class="codebook">
+  <h3>EA 12FEP Codebook</h3>
+  <p>A structured codebook for scoring participant testimony against <strong>Längle's Twelve Fundamental Existential Prerequisites</strong> — derived from the 4FM framework, decomposing each Fundamental Motivation into three Prerequisites for finer-grained scoring. Built by the same multi-LLM consensus methodology, against two primary Längle sources (2002, 2011b).</p>
+  <dl class="meta">
+    <dt>Concept DOI:</dt><dd class="dois"><a href="https://doi.org/10.5281/zenodo.20481464">10.5281/zenodo.20481464</a></dd>
+    <dt>GitHub:</dt><dd><a href="https://github.com/aestra-research/12fep-codebook">aestra-research/12fep-codebook</a></dd>
+    <dt>License:</dt><dd>CC BY 4.0</dd>
+  </dl>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="https://github.com/aestra-research/12fep-codebook/raw/main/codebook/12fep-master.json">Download MASTER JSON</a>
+    <a class="btn" href="https://github.com/aestra-research/12fep-codebook">Browse on GitHub</a>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20481464">Cite via Zenodo</a>
+  </div>
+</article>
+
+</section>
+
+<h2>How to use these codebooks</h2>
+
+<p>Each codebook is a JSON artifact that <strong>constrains</strong> an LLM to score participant testimony within Längle's framework, rather than letting the LLM draw on generic prior knowledge. They are not fine-tuned models and not prompts in themselves — they are structured references you provide to your LLM of choice alongside testimony.</p>
+
+<ol class="use-steps">
+  <li>Download the MASTER JSON for the framework you're working with (4FM for motivational structure; 12FEP for finer-grained scoring along three prerequisites per motivation).</li>
+  <li>Provide it to your LLM (Claude, ChatGPT, Gemini, etc.) alongside your participant testimony — a transcript, CSV, or quoted excerpt.</li>
+  <li>Ask the LLM to apply the codebook's <code>instructions_for_llm</code> / <code>coding_guidelines</code> block. The codebook requires the LLM to anchor every code in a verbatim Längle quote plus a verbatim testimony quote.</li>
+  <li>Verify the quote provenance manually before publishing or further analysis. The codebook constrains hallucination but does not eliminate it — researcher verification is the final safeguard.</li>
+</ol>
+
+<p>The companion paper (below) walks through the three core techniques in detail — multi-LLM cross-validation, quote-anchored source verification, and iterative multi-pass with re-anchoring — that underlie both the construction and the application of these codebooks.</p>
+
+<h2>Companion paper</h2>
+
+<div class="companion">
+  <p>Nelson-Zutter, G. (2026, June). <cite>"Do You Understand?!" Best Practices using Artificial Intelligence in Research (and Life)</cite> [Conference presentation]. <strong>World Congress for Existential Therapy 4 (WCET4)</strong>, Denver, CO, United States.</p>
+  <p style="margin: 0; font-size: 0.9rem; color: var(--muted);">Methodology paper DOI: forthcoming (post-conference deposit).</p>
+</div>
+
+<h2>About</h2>
+
+<p>Both codebooks were authored by <strong>Graham Nelson-Zutter</strong>, MSc student in Existential Analysis &amp; Logotherapy at the University of Salzburg, in the course of his MSc thesis on LLM-assisted qualitative analysis of psychedelic-assisted therapy participant experiences.</p>
+
+<p>The LLMs used in the methodology (Claude Sonnet 4.5, ChatGPT 5 Thinking, Gemini 2.5 Turbo, and others) are <em>research instruments</em>, not co-authors. See each codebook's <code>README.md</code> and <code>docs/lineage.md</code> for the full multi-LLM build provenance.</p>
+
+<footer>
+  <p>Codebooks released under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> (CC&nbsp;BY&nbsp;4.0). Embedded Längle source quotations remain under their original publishers' copyright and are reproduced under academic fair use — see each repo's <code>NOTICE.md</code>.</p>
+  <p>Contact: <a href="mailto:graham@aestra.ca">graham@aestra.ca</a></p>
+</footer>
+
+</main>
+</body>
+</html>
