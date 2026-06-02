@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AESTRA Research — Four Fundamental Motivations: Guided Meditations</title>
+<meta name="description" content="Four guided meditations on Alfried Längle's Four Fundamental Motivations — companion materials and take-home recordings for the WCET4 (2026) workshop by Graham Nelson-Zutter.">
+<style>
+:root {
+  --text: #1a1a1a;
+  --muted: #555;
+  --line: #d9d9d9;
+  --bg: #fafafa;
+  --accent: #2a4d6e;
+  --accent-bg: #eef3f8;
+  --serif: Charter, Georgia, Cambria, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html { font-size: 17px; }
+body {
+  font-family: var(--serif);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+  margin: 0;
+  padding: 2.5rem 1.5rem 4rem;
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 720px; margin: 0 auto; }
+header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+h1 {
+  font-family: var(--sans);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.25rem;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+.tagline { font-style: italic; color: var(--muted); margin: 0; font-size: 1.05rem; }
+h2 {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+  color: var(--accent);
+}
+h3 { font-family: var(--sans); font-size: 1rem; font-weight: 600; margin: 0.75rem 0 0.5rem; }
+p { margin: 0 0 0.85rem; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { text-decoration: none; }
+.intro { font-size: 1.05rem; margin-bottom: 1.5rem; }
+.codebooks { display: grid; gap: 1.25rem; margin: 1rem 0 0; }
+.codebook {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  background: #fff;
+}
+.codebook h3 { margin-top: 0; font-size: 1.1rem; color: var(--accent); }
+.codebook p { font-size: 0.97rem; }
+.codebook .question { font-style: italic; color: var(--muted); margin: 0 0 0.5rem; }
+.anchors {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin: 0.5rem 0 0;
+}
+.anchors strong { color: var(--accent); font-weight: 600; }
+.cta-row { margin-top: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.btn {
+  display: inline-block;
+  padding: 0.4rem 0.85rem;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid var(--accent);
+  border-radius: 3px;
+  text-decoration: none;
+  background: #fff;
+  color: var(--accent);
+  transition: background 0.15s;
+}
+.btn:hover { background: var(--accent-bg); text-decoration: none; }
+.btn-disabled {
+  border-color: var(--line);
+  color: var(--muted);
+  background: #f3f3f3;
+  cursor: default;
+}
+.btn-disabled:hover { background: #f3f3f3; }
+.codebook.upcoming { background: var(--accent-bg); border-style: dashed; border-color: #b8c8d8; }
+.codebook.upcoming h3 { color: var(--muted); }
+.status {
+  display: inline-block;
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  background: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 2px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+.companion {
+  background: var(--accent-bg);
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  font-size: 0.97rem;
+}
+.companion cite { font-style: italic; }
+footer {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  font-size: 0.87rem;
+  color: var(--muted);
+  font-family: var(--sans);
+}
+footer p { margin: 0 0 0.5rem; }
+.breadcrumb {
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0 0 1.5rem;
+}
+.breadcrumb a { color: var(--muted); text-decoration: none; }
+.breadcrumb a:hover { color: var(--accent); text-decoration: underline; }
+@media (max-width: 480px) {
+  body { padding: 1.5rem 1rem 3rem; }
+  html { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<nav class="breadcrumb"><a href="/">AESTRA Research</a> · <a href="/wcet4/">WCET4 2026</a> · Meditations</nav>
+
+<header>
+  <h1>Four Fundamental Motivations</h1>
+  <p class="tagline">Guided meditations on Alfried Längle's 4FMs — WCET4 workshop companion</p>
+</header>
+
+<section class="intro">
+  <p>Welcome — you have likely arrived here from the workshop. These are the four guided meditations led in the session, each translating one of Längle's <strong>Four Fundamental Motivations</strong> into concrete, walkable imagery. Each meditation gently surfaces three <strong>Fundamental Existential Prerequisites</strong> (FEPs) — the conditions under which that motivation can be fulfilled.</p>
+  <p>The meditations are led live in the workshop; the recordings below are the take-home version, to revisit in your own time.</p>
+</section>
+
+<h2>The four meditations</h2>
+
+<section class="codebooks">
+
+<article class="codebook">
+  <h3>1FM · Can I be here?</h3>
+  <p class="question">The World — perceiving what already holds, opens, and protects.</p>
+  <p>A downward body scan that receives the support of floor and chair, lets the breath disclose the space within, and meets the skin as a flexible boundary — arriving at a place that asks nothing of you.</p>
+  <p class="anchors">Prerequisites: <strong>Support</strong> · <strong>Space</strong> · <strong>Protection</strong></p>
+  <div class="cta-row">
+    <span class="btn btn-disabled">Audio — available at the workshop</span>
+  </div>
+</article>
+
+<article class="codebook">
+  <h3>2FM · Do I like being alive?</h3>
+  <p class="question">Life — relationship, time, and nearness to what is living.</p>
+  <p>Support deepens through the building into the earth; the breath is shared with a tree you come to sit beneath, resting your back against its trunk — time given freely, nothing required.</p>
+  <p class="anchors">Prerequisites: <strong>Relationship</strong> · <strong>Time</strong> · <strong>Closeness</strong></p>
+  <div class="cta-row">
+    <span class="btn btn-disabled">Audio — available at the workshop</span>
+  </div>
+</article>
+
+<article class="codebook">
+  <h3>3FM · May I be myself?</h3>
+  <p class="question">The Person — a short journey of attention, justice, and appreciation.</p>
+  <p>A walk inward to a picnic table where you draw the tree for the pleasure of it, then share the drawings with a friend who remembered your favourite drink — vulnerability met with enthusiasm.</p>
+  <p class="anchors">Prerequisites: <strong>Attention</strong> · <strong>Justice</strong> · <strong>Appreciation</strong></p>
+  <div class="cta-row">
+    <span class="btn btn-disabled">Audio — available at the workshop</span>
+  </div>
+</article>
+
+<article class="codebook">
+  <h3>4FM · What should I live for?</h3>
+  <p class="question">Meaning — the long arc of a seed that outlives you.</p>
+  <p>The tree's fruit is also a seed; you plant, tend, and transplant it, watch a community gather beneath the grown tree, and leave behind something beautiful — a future stranger carrying the next seed home.</p>
+  <p class="anchors">Prerequisites: <strong>Field of Activity</strong> · <strong>Structural Context</strong> · <strong>Value to be Realized</strong></p>
+  <div class="cta-row">
+    <span class="btn btn-disabled">Audio — available at the workshop</span>
+  </div>
+</article>
+
+<article class="codebook upcoming">
+  <h3>Composition Handout <span class="status">Coming soon</span></h3>
+  <p>A short guide to how these meditations were composed — the recipe for mapping each Fundamental Motivation and its three Prerequisites onto guided imagery, so you can adapt the method for your own clients or practice.</p>
+</article>
+
+</section>
+
+<h2>About this work</h2>
+
+<p>These meditations operationalize Längle's Four Fundamental Motivations through a single unfolding landscape (ground, breath, tree, seed). They form part of Graham Nelson-Zutter's MSc thesis work in Existential Analysis &amp; Logotherapy at the University of Salzburg, and draw on the mindfulness lineage of Jon Kabat-Zinn and Sharon Salzberg alongside the existential foundations of Viktor Frankl, Ludwig Binswanger, and Alfried Längle.</p>
+
+<h2>Workshop</h2>
+
+<div class="companion">
+  <p>Nelson-Zutter, G. (2026, June). <cite>Guided meditations on the Four Fundamental Motivations</cite> [Workshop]. World Congress for Existential Therapy 4 (WCET4), Denver, CO, United States.</p>
+  <p style="margin: 0; font-size: 0.9rem; color: var(--muted);">See also the companion methodology paper and <a href="/ea-codebooks/">EA codebooks</a>.</p>
+</div>
+
+<footer>
+  <p>Meditations &copy; Graham Nelson-Zutter. Licensing to be confirmed on deposit.</p>
+  <p>Contact: <a href="mailto:graham@aestra.ca">graham@aestra.ca</a>  ·  ORCID <a href="https://orcid.org/0009-0003-9567-6512">0009-0003-9567-6512</a></p>
+</footer>
+
+</main>
+</body>
+</html>
