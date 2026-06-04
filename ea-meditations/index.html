@@ -170,6 +170,30 @@ footer p { margin: 0 0 0.5rem; }
   body { padding: 1.5rem 1rem 3rem; }
   html { font-size: 16px; }
 }
+/* --- interest form + popup --- */
+.interest { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--line); }
+.interest h2 { color: var(--accent); }
+.ml-form { display: grid; gap: .9rem; max-width: 460px; margin-top: 1rem; }
+.ml-form label { font-family: var(--sans); font-size: .85rem; font-weight: 600; display: block; margin-bottom: .25rem; }
+.ml-form input[type=text], .ml-form input[type=email], .ml-form select {
+  width: 100%; padding: .5rem .6rem; font-size: 1rem; font-family: var(--sans);
+  border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+.ml-consent { display: flex; gap: .55rem; align-items: flex-start; font-family: var(--sans); font-size: .82rem; line-height: 1.4; color: var(--muted); }
+.ml-consent input { margin-top: .2rem; flex: 0 0 auto; }
+.ml-form button { font-family: var(--sans); font-weight: 600; background: var(--accent); color: #fff;
+  border: none; padding: .6rem 1.2rem; border-radius: 4px; font-size: .95rem; cursor: pointer; justify-self: start; }
+.ml-form button:disabled { opacity: .55; cursor: not-allowed; }
+.ml-error { color: #b00020; font-family: var(--sans); font-size: .8rem; min-height: 1em; }
+.ml-success { font-family: var(--sans); background: var(--accent-bg); border-left: 3px solid var(--accent); padding: 1rem; }
+/* popup */
+.ml-overlay { position: fixed; inset: 0; background: rgba(20,30,45,.55); display: none;
+  align-items: center; justify-content: center; padding: 1rem; z-index: 1000; }
+.ml-overlay.show { display: flex; }
+.ml-modal { background: var(--bg); max-width: 520px; width: 100%; max-height: 90vh; overflow-y: auto;
+  border-radius: 8px; padding: 1.8rem 1.8rem 2rem; position: relative; box-shadow: 0 12px 40px rgba(0,0,0,.3); }
+.ml-modal h2 { margin-top: 0; }
+.ml-close { position: absolute; top: .6rem; right: .8rem; background: none; border: none;
+  font-size: 1.6rem; line-height: 1; color: var(--muted); cursor: pointer; }
 </style>
 </head>
 <body>
@@ -380,11 +404,164 @@ footer p { margin: 0 0 0.5rem; }
 
 <p>The CC BY-NC-ND 4.0 license is a restrictive Creative Commons license that allows others to download and share work, provided they attribute the original creator. Key restrictions include no commercial use (NC) and no derivatives (ND). This means you cannot alter the material or use it for financial gain.</p>
 
+<section class="interest" id="interest">
+  <h2>Researching these meditations</h2>
+  <p>I'm planning a study of how Existential-Analysis practitioners use these guided meditations. If you'd like to hear about it when it's ready, leave your details below — this is an <strong>expression of interest only, not enrolment</strong>.</p>
+  <form class="ml-form" data-ml-form novalidate>
+    <div>
+      <label for="ml-name-inline">First name</label>
+      <input type="text" id="ml-name-inline" name="name" autocomplete="given-name">
+    </div>
+    <div>
+      <label for="ml-email-inline">Email <span aria-hidden="true">*</span></label>
+      <input type="email" id="ml-email-inline" name="email" autocomplete="email" required>
+    </div>
+    <div>
+      <label for="ml-role-inline">Professional role</label>
+      <select id="ml-role-inline" name="professional_role">
+        <option value="">Select…</option>
+        <option>Psychotherapist</option>
+        <option>Counsellor</option>
+        <option>In training</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div>
+      <label for="ml-country-inline">Country</label>
+      <input type="text" id="ml-country-inline" name="country" autocomplete="country-name">
+    </div>
+    <label class="ml-consent">
+      <input type="checkbox" name="consent" required>
+      <span>I consent to Graham Nelson-Zutter (Aestra Counselling &amp; Wellness) storing my name, email, professional role and country so he can contact me about a planned research study on guided meditations based on Längle's Four Fundamental Motivations for EA practitioners. I understand this is an <strong>expression of interest only — not enrolment</strong> — and that I can withdraw at any time. I have read the <a href="/meditation-study/" target="_blank" rel="noopener">privacy notice</a>.</span>
+    </label>
+    <div class="ml-error" data-ml-error aria-live="polite"></div>
+    <button type="submit">Register my interest</button>
+  </form>
+</section>
+
 <footer>
   <p>Graham Nelson-Zutter, &copy;2026 Aestra Inc. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC&nbsp;BY-NC-ND&nbsp;4.0</a>.</p>
   <p>Contact: <a href="mailto:graham@aestra.ca">graham@aestra.ca</a>  ·  ORCID <a href="https://orcid.org/0009-0003-9567-6512">0009-0003-9567-6512</a></p>
 </footer>
 
 </main>
+<div class="ml-overlay" id="ml-overlay" role="dialog" aria-modal="true" aria-labelledby="ml-modal-title">
+  <div class="ml-modal">
+    <button class="ml-close" type="button" aria-label="Close">&times;</button>
+    <h2 id="ml-modal-title">Researching these meditations</h2>
+    <p>I'm planning a study of how Existential-Analysis practitioners use these guided meditations. If you'd like to hear about it when it's ready, leave your details — <strong>expression of interest only, not enrolment</strong>.</p>
+    <form class="ml-form" data-ml-form novalidate>
+      <div>
+        <label for="ml-name-pop">First name</label>
+        <input type="text" id="ml-name-pop" name="name" autocomplete="given-name">
+      </div>
+      <div>
+        <label for="ml-email-pop">Email <span aria-hidden="true">*</span></label>
+        <input type="email" id="ml-email-pop" name="email" autocomplete="email" required>
+      </div>
+      <div>
+        <label for="ml-role-pop">Professional role</label>
+        <select id="ml-role-pop" name="professional_role">
+          <option value="">Select…</option>
+          <option>Psychotherapist</option>
+          <option>Counsellor</option>
+          <option>In training</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div>
+        <label for="ml-country-pop">Country</label>
+        <input type="text" id="ml-country-pop" name="country" autocomplete="country-name">
+      </div>
+      <label class="ml-consent">
+        <input type="checkbox" name="consent" required>
+        <span>I consent to Graham Nelson-Zutter (Aestra Counselling &amp; Wellness) storing my name, email, professional role and country so he can contact me about a planned research study on guided meditations based on Längle's Four Fundamental Motivations for EA practitioners. I understand this is an <strong>expression of interest only — not enrolment</strong> — and that I can withdraw at any time. I have read the <a href="/meditation-study/" target="_blank" rel="noopener">privacy notice</a>.</span>
+      </label>
+      <div class="ml-error" data-ml-error aria-live="polite"></div>
+      <button type="submit">Register my interest</button>
+    </form>
+  </div>
+</div>
+
+<script>
+(function () {
+  // === MailerLite config — REPLACE in Task 4 from the dashboard-generated snippet ===
+  var ML_ENDPOINT = "REPLACE_ME"; // e.g. https://assets.mailerlite.com/jsonp/{accountId}/forms/{formId}/subscribe
+  // ================================================================================
+
+  function isConfigured() { return ML_ENDPOINT && ML_ENDPOINT !== "REPLACE_ME"; }
+
+  function submitForm(form, errEl) {
+    var email = form.querySelector('input[name=email]');
+    var consent = form.querySelector('input[name=consent]');
+    errEl.textContent = "";
+    if (!email.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) {
+      errEl.textContent = "Please enter a valid email address."; email.focus(); return;
+    }
+    if (!consent.checked) { errEl.textContent = "Please tick the consent box to continue."; return; }
+
+    var params = new URLSearchParams();
+    ['name', 'email', 'professional_role', 'country'].forEach(function (k) {
+      var el = form.querySelector('[name=' + k + ']');
+      if (el && el.value) params.append('fields[' + k + ']', el.value);
+    });
+    params.append('ml-submit', '1');
+    params.append('anticsrf', 'true');
+
+    var btn = form.querySelector('button[type=submit]');
+    btn.disabled = true;
+
+    function done() {
+      var msg = document.createElement('div');
+      msg.className = 'ml-success';
+      msg.textContent = "Thanks — please check your email and click the confirmation link to register your interest.";
+      form.replaceWith(msg);
+    }
+
+    if (!isConfigured()) { done(); return; } // pre-wiring: show success UX without a broken request
+
+    fetch(ML_ENDPOINT, {
+      method: 'POST', mode: 'no-cors',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: params.toString()
+    }).then(done).catch(done); // no-cors: response is opaque; double opt-in is the real validation
+  }
+
+  document.querySelectorAll('form[data-ml-form]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      submitForm(form, form.querySelector('[data-ml-error]'));
+    });
+  });
+
+  // === exit-intent popup, once per visitor, desktop only ===
+  var overlay = document.getElementById('ml-overlay');
+  var KEY = 'ml-interest-dismissed';
+  var isTouch = window.matchMedia('(hover: none)').matches || 'ontouchstart' in window;
+
+  function closePopup() {
+    overlay.classList.remove('show');
+    try { localStorage.setItem(KEY, '1'); } catch (e) {}
+  }
+  function openPopup() {
+    if (isTouch) return;
+    try { if (localStorage.getItem(KEY)) return; } catch (e) {}
+    overlay.classList.add('show');
+    var first = overlay.querySelector('input, button');
+    if (first) first.focus();
+  }
+  if (!isTouch) {
+    document.addEventListener('mouseout', function (e) {
+      if (!e.relatedTarget && e.clientY <= 0 && !overlay.classList.contains('show')) openPopup();
+    });
+  }
+  overlay.querySelector('.ml-close').addEventListener('click', closePopup);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) closePopup(); });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('show')) closePopup();
+  });
+})();
+</script>
+
 </body>
 </html>
