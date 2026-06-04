@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>AESTRA Research — EA Codebooks for LLM-Assisted Qualitative Analysis</title>
+<title>AESTRA Research - EA Codebooks for LLM-Assisted Qualitative Analysis</title>
 <meta name="description" content="Open-source codebooks for Existential Analysis qualitative research with Large Language Models. Längle's Four Fundamental Motivations and Twelve Fundamental Existential Prerequisites.">
 <style>
 :root {
@@ -193,7 +193,7 @@ code {
 
 <article class="codebook">
   <h3>EA 4FM Codebook</h3>
-  <p>A structured codebook for scoring participant testimony against <strong>Längle's Four Fundamental Motivations</strong> — the foundational framework. Built by multi-LLM cross-validation across Claude Sonnet 4.5, ChatGPT 5 Thinking, and Gemini 2.5 Turbo, using four primary Längle sources (1992, 2002, 2003, 2011). Every code traces to a verbatim Längle quote with citation.</p>
+  <p>A structured codebook for scoring participant testimony against <strong>Längle's Four Fundamental Motivations</strong> - the foundational framework. Built by multi-LLM cross-validation across Claude Sonnet 4.5, ChatGPT 5 Thinking, and Gemini 2.5 Turbo, using four primary Längle sources (1992, 2002, 2003, 2011). Every code traces to a verbatim Längle quote with citation.</p>
   <dl class="meta">
     <dt>Concept DOI:</dt><dd class="dois"><a href="https://doi.org/10.5281/zenodo.20483207">10.5281/zenodo.20483207</a></dd>
     <dt>GitHub:</dt><dd><a href="https://github.com/aestra-research/4fm-codebook">aestra-research/4fm-codebook</a></dd>
@@ -208,7 +208,7 @@ code {
 
 <article class="codebook">
   <h3>EA 12FEP Codebook</h3>
-  <p>A structured codebook for scoring participant testimony against <strong>Längle's Twelve Fundamental Existential Prerequisites</strong> — derived from the 4FM framework, decomposing each Fundamental Motivation into three Prerequisites for finer-grained scoring. Built by the same multi-LLM consensus methodology, against two primary Längle sources (2002, 2011b).</p>
+  <p>A structured codebook for scoring participant testimony against <strong>Längle's Twelve Fundamental Existential Prerequisites</strong> - derived from the 4FM framework, decomposing each Fundamental Motivation into three Prerequisites for finer-grained scoring. Built by the same multi-LLM consensus methodology, against two primary Längle sources (2002, 2011b).</p>
   <dl class="meta">
     <dt>Concept DOI:</dt><dd class="dois"><a href="https://doi.org/10.5281/zenodo.20481464">10.5281/zenodo.20481464</a></dd>
     <dt>GitHub:</dt><dd><a href="https://github.com/aestra-research/12fep-codebook">aestra-research/12fep-codebook</a></dd>
@@ -225,16 +225,16 @@ code {
 
 <h2>How to use these codebooks</h2>
 
-<p>Each codebook is a JSON artifact that <strong>constrains</strong> an LLM to score participant testimony within Längle's framework, rather than letting the LLM draw on generic prior knowledge. They are not fine-tuned models and not prompts in themselves — they are structured references you provide to your LLM of choice alongside testimony.</p>
+<p>Each codebook is a JSON artifact that <strong>constrains</strong> an LLM to score participant testimony within Längle's framework, rather than letting the LLM draw on generic prior knowledge. They are not fine-tuned models and not prompts in themselves - they are structured references you provide to your LLM of choice alongside testimony.</p>
 
 <ol class="use-steps">
   <li>Download the MASTER JSON for the framework you're working with (4FM for motivational structure; 12FEP for finer-grained scoring along three prerequisites per motivation).</li>
-  <li>Provide it to your LLM (Claude, ChatGPT, Gemini, etc.) alongside your participant testimony — a transcript, CSV, or quoted excerpt.</li>
+  <li>Provide it to your LLM (Claude, ChatGPT, Gemini, etc.) alongside your participant testimony - a transcript, CSV, or quoted excerpt.</li>
   <li>Ask the LLM to apply the codebook's <code>instructions_for_llm</code> / <code>coding_guidelines</code> block. The codebook requires the LLM to anchor every code in a verbatim Längle quote plus a verbatim testimony quote.</li>
-  <li>Verify the quote provenance manually before publishing or further analysis. The codebook constrains hallucination but does not eliminate it — researcher verification is the final safeguard.</li>
+  <li>Verify the quote provenance manually before publishing or further analysis. The codebook constrains hallucination but does not eliminate it - researcher verification is the final safeguard.</li>
 </ol>
 
-<p>The companion paper (below) walks through the three core techniques in detail — multi-LLM cross-validation, quote-anchored source verification, and iterative multi-pass with re-anchoring — that underlie both the construction and the application of these codebooks.</p>
+<p>The companion paper (below) walks through the three core techniques in detail - multi-LLM cross-validation, quote-anchored source verification, and iterative multi-pass with re-anchoring - that underlie both the construction and the application of these codebooks.</p>
 
 <h2>Companion paper</h2>
 
@@ -250,7 +250,7 @@ code {
 <p>The LLMs used in the methodology (Claude Sonnet 4.5, ChatGPT 5 Thinking, Gemini 2.5 Turbo, and others) are <em>research instruments</em>, not co-authors. See each codebook's <code>README.md</code> and <code>docs/lineage.md</code> for the full multi-LLM build provenance.</p>
 
 <footer>
-  <p>Codebooks released under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> (CC&nbsp;BY&nbsp;4.0). Embedded Längle source quotations remain under their original publishers' copyright and are reproduced under academic fair use — see each repo's <code>NOTICE.md</code>.</p>
+  <p>Codebooks released under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> (CC&nbsp;BY&nbsp;4.0). Embedded Längle source quotations remain under their original publishers' copyright and are reproduced under academic fair use - see each repo's <code>NOTICE.md</code>.</p>
   <p>Contact: <a href="mailto:graham@aestra.ca">graham@aestra.ca</a></p>
 </footer>
 
