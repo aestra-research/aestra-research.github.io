@@ -154,6 +154,9 @@ footer {
   font-family: var(--sans);
 }
 footer p { margin: 0 0 0.5rem; }
+.cc-icons { display: flex; gap: 0.35rem; align-items: center; margin-bottom: 0.75rem; }
+.cc-icons a { display: inline-flex; gap: 0.35rem; }
+.cc-icons img { display: block; width: 36px; height: 36px; }
 code {
   font-family: "SF Mono", Menlo, Consolas, monospace;
   font-size: 0.88em;
@@ -186,7 +189,7 @@ code {
 </header>
 
 <section class="intro">
-  <p>Two open-source codebooks supporting the WCET4 (2026) paper <em>"Do You Understand?!" Best Practices using Artificial Intelligence in Research (and Life)</em> by Graham Nelson-Zutter, MSc. Both are downloadable, citable, and licensed CC&nbsp;BY&nbsp;4.0 for reuse in your own research.</p>
+  <p>Two open-source codebooks supporting the WCET4 (2026) paper <em>"Do You Understand?!" Best Practices using Artificial Intelligence in Research (and Life)</em> by Graham Nelson-Zutter, MSc. Both are downloadable, citable, and licensed CC&nbsp;BY-NC-ND&nbsp;4.0 (attribution, non-commercial, no derivatives) for use in your own research.</p>
 </section>
 
 <section class="codebooks">
@@ -197,7 +200,7 @@ code {
   <dl class="meta">
     <dt>Concept DOI:</dt><dd class="dois"><a href="https://doi.org/10.5281/zenodo.20483207">10.5281/zenodo.20483207</a></dd>
     <dt>GitHub:</dt><dd><a href="https://github.com/aestra-research/4fm-codebook">aestra-research/4fm-codebook</a></dd>
-    <dt>License:</dt><dd>CC BY 4.0</dd>
+    <dt>License:</dt><dd>CC BY-NC-ND 4.0</dd>
   </dl>
   <div class="cta-row">
     <a class="btn btn-primary" href="https://github.com/aestra-research/4fm-codebook/raw/main/codebook/4fm-master.json">Download MASTER JSON</a>
@@ -212,7 +215,7 @@ code {
   <dl class="meta">
     <dt>Concept DOI:</dt><dd class="dois"><a href="https://doi.org/10.5281/zenodo.20481464">10.5281/zenodo.20481464</a></dd>
     <dt>GitHub:</dt><dd><a href="https://github.com/aestra-research/12fep-codebook">aestra-research/12fep-codebook</a></dd>
-    <dt>License:</dt><dd>CC BY 4.0</dd>
+    <dt>License:</dt><dd>CC BY-NC-ND 4.0</dd>
   </dl>
   <div class="cta-row">
     <a class="btn btn-primary" href="https://github.com/aestra-research/12fep-codebook/raw/main/codebook/12fep-master.json">Download MASTER JSON</a>
@@ -250,7 +253,17 @@ code {
 <p>The LLMs used in the methodology (Claude Sonnet 4.5, ChatGPT 5 Thinking, Gemini 2.5 Turbo, and others) are <em>research instruments</em>, not co-authors. See each codebook's <code>README.md</code> and <code>docs/lineage.md</code> for the full multi-LLM build provenance.</p>
 
 <footer>
-  <p>Codebooks released under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International</a> (CC&nbsp;BY&nbsp;4.0). Embedded Längle source quotations remain under their original publishers' copyright and are reproduced under academic fair use - see each repo's <code>NOTICE.md</code>.</p>
+  <p class="cc-icons" aria-label="License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International">
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+      <img src="https://mirrors.creativecommons.org/presskit/icons/cc.xlarge.png" alt="CC" width="48" height="48">
+      <img src="https://mirrors.creativecommons.org/presskit/icons/by.xlarge.png" alt="BY (Attribution)" width="48" height="48">
+      <img src="https://mirrors.creativecommons.org/presskit/icons/nc.xlarge.png" alt="NC (NonCommercial)" width="48" height="48">
+      <img src="https://mirrors.creativecommons.org/presskit/icons/nc-eu.xlarge.png" alt="NC (NonCommercial, EU mark)" width="48" height="48">
+      <img src="https://mirrors.creativecommons.org/presskit/icons/nd.xlarge.png" alt="ND (NoDerivatives)" width="48" height="48">
+    </a>
+  </p>
+  <p>Codebooks released under <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</a> (CC&nbsp;BY-NC-ND&nbsp;4.0). Embedded Längle source quotations remain under their original publishers' copyright and are reproduced under academic fair use - see each repo's <code>NOTICE.md</code>.</p>
+  <p>&copy; 2026 Aestra Inc. Authored by Graham Nelson-Zutter.</p>
   <p>Contact: <a href="mailto:graham@aestra.ca">graham@aestra.ca</a></p>
 </footer>
 
