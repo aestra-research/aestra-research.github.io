@@ -485,11 +485,11 @@ footer p { margin: 0 0 0.5rem; }
 
 <script>
 (function () {
-  // === MailerLite config — REPLACE in Task 4 from the dashboard-generated snippet ===
-  var ML_ENDPOINT = "REPLACE_ME"; // e.g. https://assets.mailerlite.com/jsonp/{accountId}/forms/{formId}/subscribe
-  // ================================================================================
+  // === MailerLite config (account 2404157, popup form "Meditation Study - Interest") ===
+  var ML_ENDPOINT = "https://assets.mailerlite.com/jsonp/2404157/forms/189375076530914611/subscribe";
+  // ====================================================================================
 
-  function isConfigured() { return ML_ENDPOINT && ML_ENDPOINT !== "REPLACE_ME"; }
+  function isConfigured() { return ML_ENDPOINT && ML_ENDPOINT.indexOf("assets.mailerlite.com") !== -1; }
 
   function submitForm(form, errEl) {
     var email = form.querySelector('input[name=email]');
@@ -518,13 +518,26 @@ footer p { margin: 0 0 0.5rem; }
       form.replaceWith(msg);
     }
 
-    if (!isConfigured()) { done(); return; } // pre-wiring: show success UX without a broken request
+    if (!isConfigured()) { done(); return; } // safety: never fire a broken request
 
+    // Endpoint allows CORS and returns JSON, so we can surface real success/errors.
     fetch(ML_ENDPOINT, {
-      method: 'POST', mode: 'no-cors',
+      method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: params.toString()
-    }).then(done).catch(done); // no-cors: response is opaque; double opt-in is the real validation
+    }).then(function (r) {
+      return r.json().catch(function () { return { success: true }; });
+    }).then(function (res) {
+      if (res && res.success === false) {
+        var msg = res.message || "Sorry, something went wrong. Please try again.";
+        if (res.errors && res.errors.fields && res.errors.fields.email) {
+          msg = res.errors.fields.email[0];
+        }
+        errEl.textContent = msg; btn.disabled = false;
+      } else {
+        done(); // MailerLite then sends the double opt-in confirmation email
+      }
+    }).catch(function () { done(); }); // network/opaque failure: stay optimistic, double opt-in still validates
   }
 
   document.querySelectorAll('form[data-ml-form]').forEach(function (form) {
