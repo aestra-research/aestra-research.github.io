@@ -210,7 +210,10 @@ footer p { margin: 0 0 0.5rem; }
 .sidenav-list a { display: block; padding: .55rem 1rem; font-size: .86rem;
   text-decoration: none; color: var(--text); }
 .sidenav-list a:hover, .sidenav-list a.active { background: var(--accent-bg); color: var(--accent); }
-#meditations, #about, #workshop, #influences, #cite, #license, #interest { scroll-margin-top: 4rem; }
+.sidenav-sub { list-style: none; margin: 0; padding: 0; }
+.sidenav-sub a { padding-left: 2rem; font-size: .82rem; color: var(--muted); }
+#meditations, #about, #workshop, #influences, #cite, #license, #interest,
+#fm1, #fm2, #fm3, #fm4 { scroll-margin-top: 4rem; }
 @media (min-width: 1200px) {
   .sidenav { position: fixed; top: 50%; transform: translateY(-50%);
     left: max(1.5rem, calc((100vw - 720px) / 2 - 210px)); width: 190px;
@@ -226,6 +229,7 @@ footer p { margin: 0 0 0.5rem; }
   .sidenav-list a:hover { background: none; color: var(--accent); }
   .sidenav-list a.active { background: none; color: var(--accent); font-weight: 600;
     border-left-color: var(--accent); }
+  .sidenav-sub a { padding-left: 1.7rem; font-size: .78rem; }
 }
 </style>
 </head>
@@ -236,7 +240,14 @@ footer p { margin: 0 0 0.5rem; }
   </button>
   <p class="sidenav-title">On this page</p>
   <ul class="sidenav-list" id="sidenav-list">
-    <li><a href="#meditations">The four meditations</a></li>
+    <li><a href="#meditations">The four meditations</a>
+      <ul class="sidenav-sub">
+        <li><a href="#fm1">1FM &middot; The World</a></li>
+        <li><a href="#fm2">2FM &middot; Life</a></li>
+        <li><a href="#fm3">3FM &middot; The Person</a></li>
+        <li><a href="#fm4">4FM &middot; Meaning</a></li>
+      </ul>
+    </li>
     <li><a href="#about">About this work</a></li>
     <li><a href="#workshop">Workshop</a></li>
     <li><a href="#influences">Influences &amp; Sources</a></li>
@@ -263,7 +274,7 @@ footer p { margin: 0 0 0.5rem; }
 
 <section class="codebooks">
 
-<article class="codebook">
+<article class="codebook" id="fm1">
   <h3>1FM · Can I be here?</h3>
   <p class="question">The World - perceiving what already holds, opens, and protects.</p>
   <p>A downward body scan that receives the support of floor and chair, lets the breath disclose the space within, and meets the skin as a flexible boundary - arriving at a place that asks nothing of you.</p>
@@ -281,7 +292,7 @@ footer p { margin: 0 0 0.5rem; }
   <p class="lic"><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" aria-label="CC BY-NC-ND 4.0"><img src="/cc-icons/cc.png" alt="" width="20" height="20"><img src="/cc-icons/by.png" alt="" width="20" height="20"><img src="/cc-icons/nc.png" alt="" width="20" height="20"><img src="/cc-icons/nc-eu.png" alt="" width="20" height="20"><img src="/cc-icons/nd.png" alt="" width="20" height="20"><span>CC BY-NC-ND 4.0</span></a></p>
 </article>
 
-<article class="codebook">
+<article class="codebook" id="fm2">
   <h3>2FM · Do I like being alive?</h3>
   <p class="question">Life - relationship, time, and nearness to what is living.</p>
   <p>Support deepens through the building into the earth; the breath is shared with a tree you come to sit beneath, resting your back against its trunk - time given freely, nothing required.</p>
@@ -299,7 +310,7 @@ footer p { margin: 0 0 0.5rem; }
   <p class="lic"><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" aria-label="CC BY-NC-ND 4.0"><img src="/cc-icons/cc.png" alt="" width="20" height="20"><img src="/cc-icons/by.png" alt="" width="20" height="20"><img src="/cc-icons/nc.png" alt="" width="20" height="20"><img src="/cc-icons/nc-eu.png" alt="" width="20" height="20"><img src="/cc-icons/nd.png" alt="" width="20" height="20"><span>CC BY-NC-ND 4.0</span></a></p>
 </article>
 
-<article class="codebook">
+<article class="codebook" id="fm3">
   <h3>3FM · May I be myself?</h3>
   <p class="question">The Person - a short journey of attention, justice, and appreciation.</p>
   <p>A walk inward to a picnic table where you draw the tree for the pleasure of it, then share the drawings with a friend who remembered your favourite drink - vulnerability met with enthusiasm.</p>
@@ -317,7 +328,7 @@ footer p { margin: 0 0 0.5rem; }
   <p class="lic"><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" aria-label="CC BY-NC-ND 4.0"><img src="/cc-icons/cc.png" alt="" width="20" height="20"><img src="/cc-icons/by.png" alt="" width="20" height="20"><img src="/cc-icons/nc.png" alt="" width="20" height="20"><img src="/cc-icons/nc-eu.png" alt="" width="20" height="20"><img src="/cc-icons/nd.png" alt="" width="20" height="20"><span>CC BY-NC-ND 4.0</span></a></p>
 </article>
 
-<article class="codebook">
+<article class="codebook" id="fm4">
   <h3>4FM · What should I live for?</h3>
   <p class="question">Meaning - the long arc of a seed that outlives you.</p>
   <p>The tree's fruit is also a seed; you plant, tend, and transplant it, watch a community gather beneath the grown tree, and leave behind something beautiful - a future stranger carrying the next seed home.</p>
