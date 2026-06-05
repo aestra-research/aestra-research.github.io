@@ -194,9 +194,57 @@ footer p { margin: 0 0 0.5rem; }
 .ml-modal h2 { margin-top: 0; }
 .ml-close { position: absolute; top: .6rem; right: .8rem; background: none; border: none;
   font-size: 1.6rem; line-height: 1; color: var(--muted); cursor: pointer; }
+/* --- floating section nav --- */
+.sidenav { position: sticky; top: .6rem; z-index: 900; margin: 0 0 1.75rem;
+  background: #fff; border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05); font-family: var(--sans); }
+.sidenav-toggle { display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+  width: 100%; background: none; border: none; padding: .65rem 1rem;
+  font-family: var(--sans); font-size: .9rem; font-weight: 600; color: var(--accent); cursor: pointer; }
+.sidenav-burger { font-size: 1.1rem; line-height: 1; }
+.sidenav-title { display: none; }
+.sidenav-list { list-style: none; margin: 0; padding: 0; display: none;
+  border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+.sidenav.open .sidenav-list { display: block; }
+.sidenav-list li:not(:last-child) a { border-bottom: 1px solid #eee; }
+.sidenav-list a { display: block; padding: .55rem 1rem; font-size: .86rem;
+  text-decoration: none; color: var(--text); }
+.sidenav-list a:hover, .sidenav-list a.active { background: var(--accent-bg); color: var(--accent); }
+#meditations, #about, #workshop, #influences, #cite, #license, #interest { scroll-margin-top: 4rem; }
+@media (min-width: 1200px) {
+  .sidenav { position: fixed; top: 50%; transform: translateY(-50%);
+    left: max(1.5rem, calc((100vw - 720px) / 2 - 210px)); width: 190px;
+    margin: 0; background: none; border: none; border-radius: 0; box-shadow: none; }
+  .sidenav-toggle { display: none; }
+  .sidenav-title { display: block; font-family: var(--sans); font-size: .7rem;
+    text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 .5rem .85rem; }
+  .sidenav-list { display: block; border-top: none; max-height: none; overflow: visible;
+    border-left: 2px solid var(--line); }
+  .sidenav-list li:not(:last-child) a { border-bottom: none; }
+  .sidenav-list a { padding: .3rem .85rem; font-size: .82rem; color: var(--muted);
+    border-left: 2px solid transparent; margin-left: -2px; line-height: 1.35; }
+  .sidenav-list a:hover { background: none; color: var(--accent); }
+  .sidenav-list a.active { background: none; color: var(--accent); font-weight: 600;
+    border-left-color: var(--accent); }
+}
 </style>
 </head>
 <body>
+<nav class="sidenav" id="sidenav" aria-label="On this page">
+  <button class="sidenav-toggle" type="button" aria-expanded="false" aria-controls="sidenav-list">
+    <span>On this page</span><span class="sidenav-burger" aria-hidden="true">&#9776;</span>
+  </button>
+  <p class="sidenav-title">On this page</p>
+  <ul class="sidenav-list" id="sidenav-list">
+    <li><a href="#meditations">The four meditations</a></li>
+    <li><a href="#about">About this work</a></li>
+    <li><a href="#workshop">Workshop</a></li>
+    <li><a href="#influences">Influences &amp; Sources</a></li>
+    <li><a href="#cite">Cite this</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#interest">Research study</a></li>
+  </ul>
+</nav>
 <main>
 
 <nav class="breadcrumb"><a href="/">AESTRA Research</a> · <a href="/wcet4/">WCET4 2026</a> · Meditations</nav>
@@ -211,7 +259,7 @@ footer p { margin: 0 0 0.5rem; }
   <p>The meditations are led live in the workshop; the recordings below are the take-home version, to revisit in your own time.</p>
 </section>
 
-<h2>The four meditations</h2>
+<h2 id="meditations">The four meditations</h2>
 
 <section class="codebooks">
 
@@ -323,18 +371,18 @@ footer p { margin: 0 0 0.5rem; }
 
 </section>
 
-<h2>About this work</h2>
+<h2 id="about">About this work</h2>
 
 <p>These meditations operationalize Längle<sup><a href="#ref-18" class="src-link" title="See sources">1</a></sup>'s Four Fundamental Motivations through a single unfolding landscape (ground, breath, tree, seed). They form part of Graham Nelson-Zutter's MSc thesis work in Existential Analysis &amp; Logotherapy at the University of Salzburg, and draw on the mindfulness lineage of Sharon Salzberg and Jon Kabat-Zinn<sup><a href="#ref-13" class="src-link" title="See sources">2</a></sup> alongside the existential foundations of Viktor Frankl, Ludwig Binswanger<sup><a href="#ref-6" class="src-link" title="See sources">3</a></sup>, and Alfried Längle.</p>
 
-<h2>Workshop</h2>
+<h2 id="workshop">Workshop</h2>
 
 <div class="companion">
   <p>Nelson-Zutter, G. (2026, June). <cite>Guided meditations on the Four Fundamental Motivations</cite> [Workshop]. World Congress for Existential Therapy 4 (WCET4), Denver, CO, United States.</p>
   <p style="margin: 0; font-size: 0.9rem; color: var(--muted);">See also the companion methodology paper and <a href="/ea-codebooks/">EA codebooks</a>.</p>
 </div>
 
-<section class="influences">
+<section class="influences" id="influences">
   <h2>Influences &amp; Sources</h2>
   <p class="influences-sub">Key contributors to Existential Analysis, Embodiment, and Mindfulness</p>
   <div class="face-grid">
@@ -380,7 +428,7 @@ footer p { margin: 0 0 0.5rem; }
   </div>
 </section>
 
-<h2>Cite this</h2>
+<h2 id="cite">Cite this</h2>
 <p>Each meditation and the workshop materials are archived on Zenodo (CC BY-NC-ND 4.0). Full APA citation and a Zotero RIS download for each:</p>
 <div class="apa">
   <p class="apa-entry">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — 1FM: Can I be here? (The World)</em> [Audio recording]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544710">https://doi.org/10.5281/zenodo.20544710</a> &nbsp;<a class="btn" style="padding:.15rem .5rem;font-size:.78rem" href="/ea-meditations/citations/ea-4fm-fm1.ris" download>RIS</a></p>
@@ -390,7 +438,7 @@ footer p { margin: 0 0 0.5rem; }
   <p class="apa-entry">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — Workshop materials (WCET4 2026)</em> [Teaching materials]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544724">https://doi.org/10.5281/zenodo.20544724</a> &nbsp;<a class="btn" style="padding:.15rem .5rem;font-size:.78rem" href="/ea-meditations/citations/ea-4fm-workshop.ris" download>RIS</a></p>
 </div>
 
-<h2>License</h2>
+<h2 id="license">License</h2>
 
 <p>Recordings, transcripts, and handouts on this page are by <strong>Graham Nelson-Zutter, &copy;2026 Aestra Inc.</strong>, licensed <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC&nbsp;BY-NC-ND&nbsp;4.0</a>.</p>
 
@@ -573,6 +621,48 @@ footer p { margin: 0 0 0.5rem; }
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && overlay.classList.contains('show')) closePopup();
   });
+})();
+</script>
+
+<script>
+(function () {
+  var nav = document.getElementById('sidenav');
+  if (!nav) return;
+  var toggle = nav.querySelector('.sidenav-toggle');
+  var links = Array.prototype.slice.call(nav.querySelectorAll('.sidenav-list a'));
+
+  // mobile collapse toggle
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.forEach(function (a) {
+    a.addEventListener('click', function () {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // scroll-spy: highlight the section currently in view
+  var map = {};
+  var targets = links.map(function (a) {
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) map[id] = a;
+    return el;
+  }).filter(Boolean);
+
+  if ('IntersectionObserver' in window && targets.length) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove('active'); });
+          if (map[en.target.id]) map[en.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    targets.forEach(function (t) { obs.observe(t); });
+  }
 })();
 </script>
 
