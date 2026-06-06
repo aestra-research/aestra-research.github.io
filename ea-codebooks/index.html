@@ -132,6 +132,17 @@ a:hover { text-decoration: none; }
 .btn:hover { background: var(--accent-bg); text-decoration: none; }
 .btn-primary { background: var(--accent); color: #fff; }
 .btn-primary:hover { background: #1f3a55; color: #fff; }
+.cite { position: relative; display: inline-block; }
+.cite > summary { list-style: none; cursor: pointer; white-space: nowrap; }
+.cite > summary::-webkit-details-marker { display: none; }
+.cite > summary::marker { content: ""; }
+.cite-btn::after { content: " \25BE"; font-size: .8em; }
+.cite[open] > .cite-btn::after { content: " \25B4"; }
+.cite-menu { position: absolute; top: calc(100% + 4px); left: 0; z-index: 50; min-width: 230px; max-width: calc(100vw - 3rem); background: #fff; border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,.14); padding: .3rem; }
+.cite-item { display: block; width: 100%; text-align: left; background: none; border: none; font-family: var(--sans); font-size: .84rem; color: var(--text); padding: .45rem .6rem; border-radius: 4px; cursor: pointer; text-decoration: none; box-sizing: border-box; line-height: 1.3; }
+.cite-item:hover, .cite-item:focus { background: var(--accent-bg); color: var(--accent); outline: none; }
+.cite-sep { height: 1px; background: var(--line); margin: .25rem .3rem; }
+.cite-copied { color: var(--accent); font-weight: 600; }
 ol.use-steps {
   padding-left: 1.5rem;
   margin: 0.75rem 0;
@@ -203,9 +214,21 @@ code {
     <dt>License:</dt><dd>CC BY-NC-ND 4.0</dd>
   </dl>
   <div class="cta-row">
-    <a class="btn btn-primary" href="https://github.com/aestra-research/4fm-codebook/raw/main/codebook/4fm-master_GrahamNelsonZutter_CC-BY-NC-ND-4.0.json">Download MASTER JSON</a>
+    <a class="btn btn-primary" href="/ea-codebooks/4fm-master_GrahamNelsonZutter_CC-BY-NC-ND-4.0.json" download>Download MASTER JSON</a>
     <a class="btn" href="https://github.com/aestra-research/4fm-codebook">Browse on GitHub</a>
-    <a class="btn" href="https://doi.org/10.5281/zenodo.20483207">Cite via Zenodo</a>
+    <details class="cite">
+      <summary class="btn cite-btn">Cite</summary>
+      <div class="cite-menu" role="menu">
+        <button type="button" class="cite-item cite-copy" data-copy="Nelson-Zutter, G. (2026). EA 4FM Codebook for LLM-Assisted Qualitative Analysis [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.20483207">Copy APA citation</button>
+        <button type="button" class="cite-item cite-copy" data-copy="Graham Nelson-Zutter (2026). EA 4FM Codebook for LLM-Assisted Qualitative Analysis. Zenodo. https://doi.org/10.5281/zenodo.20483207">Copy plain text</button>
+        <div class="cite-sep"></div>
+        <a class="cite-item" href="/ea-codebooks/citations/ea-4fm-codebook.ris" download>Download RIS (.ris)</a>
+        <a class="cite-item" href="/ea-codebooks/citations/ea-4fm-codebook.bib" download>Download BibTeX (.bib)</a>
+        <div class="cite-sep"></div>
+        <a class="cite-item" href="https://doi.org/10.5281/zenodo.20483207" target="_blank" rel="noopener">View DOI</a>
+        <a class="cite-item" href="https://zenodo.org/records/20483207#export-record" target="_blank" rel="noopener">More formats (Zenodo)</a>
+      </div>
+    </details>
   </div>
 </article>
 
@@ -218,9 +241,21 @@ code {
     <dt>License:</dt><dd>CC BY-NC-ND 4.0</dd>
   </dl>
   <div class="cta-row">
-    <a class="btn btn-primary" href="https://github.com/aestra-research/12fep-codebook/raw/main/codebook/12fep-master_GrahamNelsonZutter_CC-BY-NC-ND-4.0.json">Download MASTER JSON</a>
+    <a class="btn btn-primary" href="/ea-codebooks/12fep-master_GrahamNelsonZutter_CC-BY-NC-ND-4.0.json" download>Download MASTER JSON</a>
     <a class="btn" href="https://github.com/aestra-research/12fep-codebook">Browse on GitHub</a>
-    <a class="btn" href="https://doi.org/10.5281/zenodo.20481464">Cite via Zenodo</a>
+    <details class="cite">
+      <summary class="btn cite-btn">Cite</summary>
+      <div class="cite-menu" role="menu">
+        <button type="button" class="cite-item cite-copy" data-copy="Nelson-Zutter, G. (2026). EA 12FEP Codebook for LLM-Assisted Qualitative Analysis [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.20481464">Copy APA citation</button>
+        <button type="button" class="cite-item cite-copy" data-copy="Graham Nelson-Zutter (2026). EA 12FEP Codebook for LLM-Assisted Qualitative Analysis. Zenodo. https://doi.org/10.5281/zenodo.20481464">Copy plain text</button>
+        <div class="cite-sep"></div>
+        <a class="cite-item" href="/ea-codebooks/citations/ea-12fep-codebook.ris" download>Download RIS (.ris)</a>
+        <a class="cite-item" href="/ea-codebooks/citations/ea-12fep-codebook.bib" download>Download BibTeX (.bib)</a>
+        <div class="cite-sep"></div>
+        <a class="cite-item" href="https://doi.org/10.5281/zenodo.20481464" target="_blank" rel="noopener">View DOI</a>
+        <a class="cite-item" href="https://zenodo.org/records/20481464#export-record" target="_blank" rel="noopener">More formats (Zenodo)</a>
+      </div>
+    </details>
   </div>
 </article>
 
@@ -268,5 +303,36 @@ code {
 </footer>
 
 </main>
+<script>
+(function(){
+  function flash(b){var o=b.textContent;b.textContent="Copied ✓";b.classList.add('cite-copied');setTimeout(function(){b.textContent=o;b.classList.remove('cite-copied');},1500);}
+  function fallback(t,b){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');flash(b);}catch(e){}document.body.removeChild(ta);}
+  document.querySelectorAll('.cite-copy').forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-copy')||'';if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){flash(b);},function(){fallback(t,b);});}else{fallback(t,b);}});});
+  document.addEventListener('click',function(e){document.querySelectorAll('details.cite[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('details.cite[open]').forEach(function(d){d.removeAttribute('open');});});
+})();
+</script>
+
+<script>
+// Open file links and off-site (external) links in a new tab; leave in-page
+// anchors and mailto: alone.
+(function () {
+  var fileRe = /\.(json|pdf|m4a|mp3|wav|ris|bib|csv|vtt|txt|docx?|pptx?|zip)$/i;
+  document.querySelectorAll('a[href]').forEach(function (a) {
+    var href = a.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+    var path = href.split('#')[0].split('?')[0];
+    var external = false;
+    try {
+      var u = new URL(href, location.href);
+      external = (u.protocol === 'http:' || u.protocol === 'https:') && u.host !== location.host;
+    } catch (e) {}
+    if (external || a.hasAttribute('download') || fileRe.test(path)) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+    }
+  });
+})();
+</script>
 </body>
 </html>
