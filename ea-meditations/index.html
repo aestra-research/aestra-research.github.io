@@ -61,7 +61,11 @@ a:hover { text-decoration: none; }
   border-radius: 4px;
   padding: 1.25rem 1.5rem;
   background: #fff;
+  position: relative;
 }
+.card-ico { position: absolute; top: 1.15rem; right: 1.35rem; width: 2.6rem; height: 2.6rem; }
+.codebook:has(.card-ico) h3 { padding-right: 3.2rem; }
+.nav-ico { width: 1.1em; height: 1.1em; vertical-align: -0.2em; margin-right: 0.45em; }
 .codebook h3 { margin-top: 0; font-size: 1.1rem; color: var(--accent); }
 .codebook p { font-size: 0.97rem; }
 .codebook .question { font-style: italic; color: var(--muted); margin: 0 0 0.5rem; }
@@ -87,7 +91,6 @@ a:hover { text-decoration: none; }
   transition: background 0.15s;
 }
 .btn:hover { background: var(--accent-bg); text-decoration: none; }
-.btn-ico { height: 1em; width: auto; vertical-align: -0.15em; margin-right: 0.4em; }
 .btn-disabled {
   border-color: var(--line);
   color: var(--muted);
@@ -234,7 +237,14 @@ footer p { margin: 0 0 0.5rem; }
 }
 /* --- per-card cite dropdown --- */
 .cite { position: relative; display: inline-block; }
-.cite > summary { list-style: none; cursor: pointer; }
+.cite > summary { list-style: none; cursor: pointer; white-space: nowrap; }
+.cite-list { margin-top: 1rem; }
+.cite-row { display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1.2rem; align-items: center;
+  padding: 0.85rem 0; border-top: 1px solid var(--line); }
+.cite-row:last-child { border-bottom: 1px solid var(--line); }
+.cite-row-text { margin: 0; font-size: 0.82rem; line-height: 1.5; padding-left: 1.6em; text-indent: -1.6em; }
+.cite-row .cite { justify-self: end; }
+.cite-row .cite-menu { left: auto; right: 0; }
 .cite > summary::-webkit-details-marker { display: none; }
 .cite > summary::marker { content: ""; }
 .cite-btn::after { content: " \25BE"; font-size: .8em; }
@@ -259,10 +269,10 @@ footer p { margin: 0 0 0.5rem; }
   <ul class="sidenav-list" id="sidenav-list">
     <li><a href="#meditations">The four meditations</a>
       <ul class="sidenav-sub">
-        <li><a href="#fm1">1FM &middot; The World</a></li>
-        <li><a href="#fm2">2FM &middot; Life</a></li>
-        <li><a href="#fm3">3FM &middot; The Person</a></li>
-        <li><a href="#fm4">4FM &middot; Meaning</a></li>
+        <li><a href="#fm1"><img class="nav-ico" src="/ea-meditations/icons/fm1.svg" alt="">1FM &middot; The World</a></li>
+        <li><a href="#fm2"><img class="nav-ico" src="/ea-meditations/icons/fm2.svg" alt="">2FM &middot; Life</a></li>
+        <li><a href="#fm3"><img class="nav-ico" src="/ea-meditations/icons/fm3.svg" alt="">3FM &middot; The Person</a></li>
+        <li><a href="#fm4"><img class="nav-ico" src="/ea-meditations/icons/fm4.svg" alt="">4FM &middot; Meaning</a></li>
       </ul>
     </li>
     <li><a href="#about">About this work</a></li>
@@ -292,6 +302,7 @@ footer p { margin: 0 0 0.5rem; }
 <section class="codebooks">
 
 <article class="codebook" id="fm1">
+  <img class="card-ico" src="/ea-meditations/icons/fm1.svg" alt="">
   <h3>1FM · Can I be here?</h3>
   <p class="question">The World - perceiving what already holds, opens, and protects.</p>
   <p>A downward body scan that receives the support of floor and chair, lets the breath disclose the space within, and meets the skin as a flexible boundary - arriving at a place that asks nothing of you.</p>
@@ -301,7 +312,7 @@ footer p { margin: 0 0 0.5rem; }
     Your browser can't play this audio - <a href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM1%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a">download the recording</a>.
   </audio>
   <div class="cta-row">
-    <a class="btn btn-primary" href="/ea-meditations/fm1/"><img class="btn-ico" src="/ea-meditations/icons/read-along.png" alt="" width="16" height="16">Read along</a>
+    <a class="btn btn-primary" href="/ea-meditations/fm1/">Read along</a>
     <a class="btn" href="https://github.com/aestra-research/ea-4fm-fm1" target="_blank" rel="noopener">Source</a>
     <a class="btn" href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM1%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" download>Download (.m4a · 17 min)</a>
     <details class="cite">
@@ -322,6 +333,7 @@ footer p { margin: 0 0 0.5rem; }
 </article>
 
 <article class="codebook" id="fm2">
+  <img class="card-ico" src="/ea-meditations/icons/fm2.svg" alt="">
   <h3>2FM · Do I like being alive?</h3>
   <p class="question">Life - relationship, time, and nearness to what is living.</p>
   <p>Support deepens through the building into the earth; the breath is shared with a tree you come to sit beneath, resting your back against its trunk - time given freely, nothing required.</p>
@@ -331,7 +343,7 @@ footer p { margin: 0 0 0.5rem; }
     Your browser can't play this audio - <a href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM2%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a">download the recording</a>.
   </audio>
   <div class="cta-row">
-    <a class="btn btn-primary" href="/ea-meditations/fm2/"><img class="btn-ico" src="/ea-meditations/icons/read-along.png" alt="" width="16" height="16">Read along</a>
+    <a class="btn btn-primary" href="/ea-meditations/fm2/">Read along</a>
     <a class="btn" href="https://github.com/aestra-research/ea-4fm-fm2" target="_blank" rel="noopener">Source</a>
     <a class="btn" href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM2%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" download>Download (.m4a · 31 min)</a>
     <details class="cite">
@@ -352,6 +364,7 @@ footer p { margin: 0 0 0.5rem; }
 </article>
 
 <article class="codebook" id="fm3">
+  <img class="card-ico" src="/ea-meditations/icons/fm3.svg" alt="">
   <h3>3FM · May I be myself?</h3>
   <p class="question">The Person - a short journey of attention, justice, and appreciation.</p>
   <p>A walk inward to a picnic table where you draw the tree for the pleasure of it, then share the drawings with a friend who remembered your favourite drink - vulnerability met with enthusiasm.</p>
@@ -361,7 +374,7 @@ footer p { margin: 0 0 0.5rem; }
     Your browser can't play this audio - <a href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM3%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a">download the recording</a>.
   </audio>
   <div class="cta-row">
-    <a class="btn btn-primary" href="/ea-meditations/fm3/"><img class="btn-ico" src="/ea-meditations/icons/read-along.png" alt="" width="16" height="16">Read along</a>
+    <a class="btn btn-primary" href="/ea-meditations/fm3/">Read along</a>
     <a class="btn" href="https://github.com/aestra-research/ea-4fm-fm3" target="_blank" rel="noopener">Source</a>
     <a class="btn" href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM3%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" download>Download (.m4a · 37 min)</a>
     <details class="cite">
@@ -382,6 +395,7 @@ footer p { margin: 0 0 0.5rem; }
 </article>
 
 <article class="codebook" id="fm4">
+  <img class="card-ico" src="/ea-meditations/icons/fm4.svg" alt="">
   <h3>4FM · What should I live for?</h3>
   <p class="question">Meaning - the long arc of a seed that outlives you.</p>
   <p>The tree's fruit is also a seed; you plant, tend, and transplant it, watch a community gather beneath the grown tree, and leave behind something beautiful - a future stranger carrying the next seed home.</p>
@@ -391,7 +405,7 @@ footer p { margin: 0 0 0.5rem; }
     Your browser can't play this audio - <a href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM4%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a">download the recording</a>.
   </audio>
   <div class="cta-row">
-    <a class="btn btn-primary" href="/ea-meditations/fm4/"><img class="btn-ico" src="/ea-meditations/icons/read-along.png" alt="" width="16" height="16">Read along</a>
+    <a class="btn btn-primary" href="/ea-meditations/fm4/">Read along</a>
     <a class="btn" href="https://github.com/aestra-research/ea-4fm-fm4" target="_blank" rel="noopener">Source</a>
     <a class="btn" href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM4%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" download>Download (.m4a · 44 min)</a>
     <details class="cite">
@@ -542,12 +556,57 @@ footer p { margin: 0 0 0.5rem; }
 
 <h2 id="cite">Cite this</h2>
 <p>Each meditation and the workshop materials are archived on Zenodo (CC BY-NC-ND 4.0). Full APA citation and a Zotero RIS download for each:</p>
-<div class="apa">
-  <p class="apa-entry">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — 1FM: Can I be here? (The World)</em> [Audio recording]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544710">https://doi.org/10.5281/zenodo.20544710</a> &nbsp;<a class="btn" style="padding:.15rem .5rem;font-size:.78rem" href="/ea-meditations/citations/ea-4fm-fm1.ris" download>RIS</a></p>
-  <p class="apa-entry">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — 2FM: Do I like being alive? (Life)</em> [Audio recording]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544714">https://doi.org/10.5281/zenodo.20544714</a> &nbsp;<a class="btn" style="padding:.15rem .5rem;font-size:.78rem" href="/ea-meditations/citations/ea-4fm-fm2.ris" download>RIS</a></p>
-  <p class="apa-entry">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — 3FM: May I be myself? (The Person)</em> [Audio recording]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544716">https://doi.org/10.5281/zenodo.20544716</a> &nbsp;<a class="btn" style="padding:.15rem .5rem;font-size:.78rem" href="/ea-meditations/citations/ea-4fm-fm3.ris" download>RIS</a></p>
-  <p class="apa-entry">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — 4FM: What should I live for? (Meaning)</em> [Audio recording]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544718">https://doi.org/10.5281/zenodo.20544718</a> &nbsp;<a class="btn" style="padding:.15rem .5rem;font-size:.78rem" href="/ea-meditations/citations/ea-4fm-fm4.ris" download>RIS</a></p>
-  <p class="apa-entry">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — Workshop materials (WCET4 2026)</em> [Teaching materials]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544724">https://doi.org/10.5281/zenodo.20544724</a> &nbsp;<a class="btn" style="padding:.15rem .5rem;font-size:.78rem" href="/ea-meditations/citations/ea-4fm-workshop.ris" download>RIS</a></p>
+<div class="cite-list">
+  <div class="cite-row"><p class="cite-row-text">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — 1FM: Can I be here? (The World)</em> [Audio recording]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544710">https://doi.org/10.5281/zenodo.20544710</a></p><details class="cite"><summary class="btn cite-btn">Cite</summary><div class="cite-menu" role="menu">
+    <button type="button" class="cite-item cite-copy" data-copy="Nelson-Zutter, G. (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — 1FM: Can I be here? (The World) [Audio recording]. Zenodo. https://doi.org/10.5281/zenodo.20544710">Copy APA citation</button>
+    <button type="button" class="cite-item cite-copy" data-copy="Graham Nelson-Zutter (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — 1FM: Can I be here? (The World). Zenodo. https://doi.org/10.5281/zenodo.20544710">Copy plain text</button>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="/ea-meditations/citations/ea-4fm-fm1.ris" download>Download RIS (.ris)</a>
+    <a class="cite-item" href="/ea-meditations/citations/ea-4fm-fm1.bib" download>Download BibTeX (.bib)</a>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="https://doi.org/10.5281/zenodo.20544710" target="_blank" rel="noopener">View DOI</a>
+    <a class="cite-item" href="https://zenodo.org/records/20544710#export-record" target="_blank" rel="noopener">More formats (Zenodo)</a>
+  </div></details></div>
+  <div class="cite-row"><p class="cite-row-text">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — 2FM: Do I like being alive? (Life)</em> [Audio recording]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544714">https://doi.org/10.5281/zenodo.20544714</a></p><details class="cite"><summary class="btn cite-btn">Cite</summary><div class="cite-menu" role="menu">
+    <button type="button" class="cite-item cite-copy" data-copy="Nelson-Zutter, G. (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — 2FM: Do I like being alive? (Life) [Audio recording]. Zenodo. https://doi.org/10.5281/zenodo.20544714">Copy APA citation</button>
+    <button type="button" class="cite-item cite-copy" data-copy="Graham Nelson-Zutter (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — 2FM: Do I like being alive? (Life). Zenodo. https://doi.org/10.5281/zenodo.20544714">Copy plain text</button>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="/ea-meditations/citations/ea-4fm-fm2.ris" download>Download RIS (.ris)</a>
+    <a class="cite-item" href="/ea-meditations/citations/ea-4fm-fm2.bib" download>Download BibTeX (.bib)</a>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="https://doi.org/10.5281/zenodo.20544714" target="_blank" rel="noopener">View DOI</a>
+    <a class="cite-item" href="https://zenodo.org/records/20544714#export-record" target="_blank" rel="noopener">More formats (Zenodo)</a>
+  </div></details></div>
+  <div class="cite-row"><p class="cite-row-text">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — 3FM: May I be myself? (The Person)</em> [Audio recording]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544716">https://doi.org/10.5281/zenodo.20544716</a></p><details class="cite"><summary class="btn cite-btn">Cite</summary><div class="cite-menu" role="menu">
+    <button type="button" class="cite-item cite-copy" data-copy="Nelson-Zutter, G. (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — 3FM: May I be myself? (The Person) [Audio recording]. Zenodo. https://doi.org/10.5281/zenodo.20544716">Copy APA citation</button>
+    <button type="button" class="cite-item cite-copy" data-copy="Graham Nelson-Zutter (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — 3FM: May I be myself? (The Person). Zenodo. https://doi.org/10.5281/zenodo.20544716">Copy plain text</button>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="/ea-meditations/citations/ea-4fm-fm3.ris" download>Download RIS (.ris)</a>
+    <a class="cite-item" href="/ea-meditations/citations/ea-4fm-fm3.bib" download>Download BibTeX (.bib)</a>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="https://doi.org/10.5281/zenodo.20544716" target="_blank" rel="noopener">View DOI</a>
+    <a class="cite-item" href="https://zenodo.org/records/20544716#export-record" target="_blank" rel="noopener">More formats (Zenodo)</a>
+  </div></details></div>
+  <div class="cite-row"><p class="cite-row-text">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — 4FM: What should I live for? (Meaning)</em> [Audio recording]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544718">https://doi.org/10.5281/zenodo.20544718</a></p><details class="cite"><summary class="btn cite-btn">Cite</summary><div class="cite-menu" role="menu">
+    <button type="button" class="cite-item cite-copy" data-copy="Nelson-Zutter, G. (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — 4FM: What should I live for? (Meaning) [Audio recording]. Zenodo. https://doi.org/10.5281/zenodo.20544718">Copy APA citation</button>
+    <button type="button" class="cite-item cite-copy" data-copy="Graham Nelson-Zutter (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — 4FM: What should I live for? (Meaning). Zenodo. https://doi.org/10.5281/zenodo.20544718">Copy plain text</button>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="/ea-meditations/citations/ea-4fm-fm4.ris" download>Download RIS (.ris)</a>
+    <a class="cite-item" href="/ea-meditations/citations/ea-4fm-fm4.bib" download>Download BibTeX (.bib)</a>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="https://doi.org/10.5281/zenodo.20544718" target="_blank" rel="noopener">View DOI</a>
+    <a class="cite-item" href="https://zenodo.org/records/20544718#export-record" target="_blank" rel="noopener">More formats (Zenodo)</a>
+  </div></details></div>
+  <div class="cite-row"><p class="cite-row-text">Nelson-Zutter, G. (2026). <em>Accessing Längle's Four Fundamental Motivations through guided meditation — Workshop materials (WCET4 2026)</em> [Teaching materials]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20544724">https://doi.org/10.5281/zenodo.20544724</a></p><details class="cite"><summary class="btn cite-btn">Cite</summary><div class="cite-menu" role="menu">
+    <button type="button" class="cite-item cite-copy" data-copy="Nelson-Zutter, G. (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — Workshop materials (WCET4 2026) [Teaching materials]. Zenodo. https://doi.org/10.5281/zenodo.20544724">Copy APA citation</button>
+    <button type="button" class="cite-item cite-copy" data-copy="Graham Nelson-Zutter (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — Workshop materials (WCET4 2026). Zenodo. https://doi.org/10.5281/zenodo.20544724">Copy plain text</button>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="/ea-meditations/citations/ea-4fm-workshop.ris" download>Download RIS (.ris)</a>
+    <a class="cite-item" href="/ea-meditations/citations/ea-4fm-workshop.bib" download>Download BibTeX (.bib)</a>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="https://doi.org/10.5281/zenodo.20544724" target="_blank" rel="noopener">View DOI</a>
+    <a class="cite-item" href="https://zenodo.org/records/20544724#export-record" target="_blank" rel="noopener">More formats (Zenodo)</a>
+  </div></details></div>
 </div>
 
 <h2 id="license">License</h2>
@@ -602,7 +661,6 @@ footer p { margin: 0 0 0.5rem; }
 <footer>
   <p>Graham Nelson-Zutter, &copy;2026 Aestra Inc. Licensed <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC&nbsp;BY-NC-ND&nbsp;4.0</a>.</p>
   <p>Contact: <a href="mailto:graham@aestra.ca">graham@aestra.ca</a>  ·  ORCID <a href="https://orcid.org/0009-0003-9567-6512">0009-0003-9567-6512</a></p>
-  <p><a href="https://www.flaticon.com/free-icons/read-along" title="read along icons" target="_blank" rel="noopener">Read along icons created by Freepik - Flaticon</a></p>
 </footer>
 
 </main>
@@ -814,6 +872,28 @@ footer p { margin: 0 0 0.5rem; }
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
       document.querySelectorAll('details.cite[open]').forEach(function (d) { d.removeAttribute('open'); });
+    }
+  });
+})();
+</script>
+
+<script>
+// Open file links and off-site (external) links in a new tab; leave in-page
+// anchors and mailto: alone so the meditations hub stays open behind them.
+(function () {
+  var fileRe = /\.(pdf|m4a|mp3|wav|ris|bib|csv|vtt|txt|docx?|pptx?|zip)$/i;
+  document.querySelectorAll('a[href]').forEach(function (a) {
+    var href = a.getAttribute('href');
+    if (!href || href.charAt(0) === '#') return;
+    var path = href.split('#')[0].split('?')[0];
+    var external = false;
+    try {
+      var u = new URL(href, location.href);
+      external = (u.protocol === 'http:' || u.protocol === 'https:') && u.host !== location.host;
+    } catch (e) {}
+    if (external || a.hasAttribute('download') || fileRe.test(path)) {
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
     }
   });
 })();
