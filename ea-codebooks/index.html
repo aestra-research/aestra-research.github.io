@@ -187,9 +187,104 @@ code {
   body { padding: 1.5rem 1rem 3rem; }
   html { font-size: 16px; }
 }
+html { scroll-behavior: smooth; }
+/* --- floating section nav (mirrors the meditations hub) --- */
+.sidenav { position: sticky; top: .6rem; z-index: 900; margin: 0 0 1.75rem;
+  background: #fff; border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05); font-family: var(--sans); }
+.sidenav-toggle { display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+  width: 100%; background: none; border: none; padding: .65rem 1rem;
+  font-family: var(--sans); font-size: .9rem; font-weight: 600; color: var(--accent); cursor: pointer; }
+.sidenav-burger { font-size: 1.1rem; line-height: 1; }
+.sidenav-title { display: none; }
+.sidenav-list { list-style: none; margin: 0; padding: 0; display: none;
+  border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto; }
+.sidenav.open .sidenav-list { display: block; }
+.sidenav-list > li:not(:last-child) > a { border-bottom: 1px solid #eee; }
+.sidenav-list a { display: block; padding: .55rem 1rem; font-size: .86rem; text-decoration: none; color: var(--text); }
+.sidenav-list a:hover, .sidenav-list a.active { background: var(--accent-bg); color: var(--accent); }
+.sidenav-sub { list-style: none; margin: 0; padding: 0; }
+.sidenav-sub a { padding-left: 2rem; font-size: .82rem; color: var(--muted); }
+.nav-ico { width: 1.1em; height: 1.1em; vertical-align: -0.2em; margin-right: 0.45em; }
+#codebooks, #framework, #how-to-use, #companion, #about, #references, #cite, #collaborate,
+#fm1, #fm2, #fm3, #fm4 { scroll-margin-top: 4rem; }
+@media (min-width: 1200px) {
+  .sidenav { position: fixed; top: 50%; transform: translateY(-50%);
+    left: max(1.5rem, calc((100vw - 720px) / 2 - 210px)); width: 190px;
+    margin: 0; background: none; border: none; border-radius: 0; box-shadow: none; }
+  .sidenav-toggle { display: none; }
+  .sidenav-title { display: block; font-family: var(--sans); font-size: .7rem;
+    text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 .5rem .85rem; }
+  .sidenav-list { display: block; border-top: none; max-height: none; overflow: visible;
+    border-left: 2px solid var(--line); }
+  .sidenav-list > li:not(:last-child) > a { border-bottom: none; }
+  .sidenav-list a { padding: .3rem .85rem; font-size: .82rem; color: var(--muted);
+    border-left: 2px solid transparent; margin-left: -2px; line-height: 1.35; }
+  .sidenav-list a:hover { background: none; color: var(--accent); }
+  .sidenav-list a.active { background: none; color: var(--accent); font-weight: 600; border-left-color: var(--accent); }
+  .sidenav-sub a { padding-left: 1.7rem; font-size: .78rem; }
+}
+/* --- framework section (4 FMs -> 12 FEPs) --- */
+.fm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.25rem 0 0; }
+.fm-block { border: 1px solid var(--line); border-left: 4px solid var(--fm, var(--accent));
+  border-radius: 4px; padding: 1rem 1.25rem; background: #fff; }
+.fm-head { display: flex; align-items: center; gap: .5rem; margin: 0 0 .65rem;
+  font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--fm, var(--accent)); }
+.fm-head img { width: 1.7rem; height: 1.7rem; }
+.fep-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.fep-list li { display: flex; align-items: center; gap: .55rem; font-family: var(--sans); font-size: .9rem; }
+.fep-list img { width: 1.3rem; height: 1.3rem; flex: 0 0 auto; }
+@media (max-width: 560px) { .fm-grid { grid-template-columns: 1fr; } }
+/* --- card corner icons --- */
+.codebook { position: relative; }
+.card-ico { position: absolute; top: 1.15rem; right: 1.35rem; width: 2.6rem; height: 2.6rem; }
+.codebook:has(.card-ico) h3 { padding-right: 3.2rem; }
+/* --- references + cite-this grid --- */
+.apa { font-size: 0.82rem; line-height: 1.5; }
+.apa-entry { padding-left: 1.6em; text-indent: -1.6em; margin: 0 0 0.7rem; color: var(--text); }
+.apa-entry a { color: var(--accent); word-break: break-word; }
+.ref-h { font-family: var(--sans); font-size: 1rem; color: var(--accent); margin: 1.4rem 0 0.5rem; }
+.cite-list { margin-top: 1rem; }
+.cite-row { display: grid; grid-template-columns: 1fr auto; gap: 0.3rem 1.2rem; align-items: center;
+  padding: 0.85rem 0; border-top: 1px solid var(--line); }
+.cite-row:last-child { border-bottom: 1px solid var(--line); }
+.cite-row-text { margin: 0; font-size: 0.82rem; line-height: 1.5; padding-left: 1.6em; text-indent: -1.6em; }
+.cite-row .cite { justify-self: end; }
+.cite-row .cite-menu { left: auto; right: 0; }
 </style>
+<!-- MailerLite Universal (account 2404157) -->
+<script>
+(function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+.push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+ml('account', '2404157');
+</script>
 </head>
 <body>
+<nav class="sidenav" id="sidenav" aria-label="On this page">
+  <button class="sidenav-toggle" type="button" aria-expanded="false" aria-controls="sidenav-list">
+    <span>On this page</span><span class="sidenav-burger" aria-hidden="true">&#9776;</span>
+  </button>
+  <p class="sidenav-title">On this page</p>
+  <ul class="sidenav-list" id="sidenav-list">
+    <li><a href="#framework">What they score</a>
+      <ul class="sidenav-sub">
+        <li><a href="#fm1"><img class="nav-ico" src="/ea-codebooks/icons/fm1.svg" alt="">1FM &middot; The World</a></li>
+        <li><a href="#fm2"><img class="nav-ico" src="/ea-codebooks/icons/fm2.svg" alt="">2FM &middot; Life</a></li>
+        <li><a href="#fm3"><img class="nav-ico" src="/ea-codebooks/icons/fm3.svg" alt="">3FM &middot; The Person</a></li>
+        <li><a href="#fm4"><img class="nav-ico" src="/ea-codebooks/icons/fm4.svg" alt="">4FM &middot; Meaning</a></li>
+      </ul>
+    </li>
+    <li><a href="#codebooks">The codebooks</a></li>
+    <li><a href="#how-to-use">How to use</a></li>
+    <li><a href="#companion">Companion paper</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#references">References</a></li>
+    <li><a href="#cite">Cite this</a></li>
+    <li><a href="#collaborate">Collaborate</a></li>
+  </ul>
+</nav>
 <main>
 
 <nav class="breadcrumb"><a href="/">← AESTRA Research</a></nav>
@@ -203,9 +298,49 @@ code {
   <p>Two open-source codebooks supporting the WCET4 (2026) paper <em>"Do You Understand?!" Best Practices using Artificial Intelligence in Research (and Life)</em> by Graham Nelson-Zutter, MSc. Both are downloadable, citable, and licensed CC&nbsp;BY-NC-ND&nbsp;4.0 (attribution, non-commercial, no derivatives) for use in your own research.</p>
 </section>
 
-<section class="codebooks">
+<section id="framework">
+<h2>What the codebooks score</h2>
+<p>Both codebooks score participant testimony against Längle's existential framework: the <strong>Four Fundamental Motivations</strong> (4FM), each of which decomposes into three <strong>Fundamental Existential Prerequisites</strong> (FEPs) - twelve in all. The 4FM codebook scores at the motivational level; the 12FEP codebook scores at the finer-grained prerequisite level.</p>
+<div class="fm-grid">
+  <div class="fm-block" id="fm1" style="--fm:#6AA4C8">
+    <h3 class="fm-head"><img class="fm-ico" src="/ea-codebooks/icons/fm1.svg" alt="">1FM &middot; The World</h3>
+    <ul class="fep-list">
+      <li><img src="/ea-codebooks/icons/support.svg" alt="">Support</li>
+      <li><img src="/ea-codebooks/icons/space.svg" alt="">Space</li>
+      <li><img src="/ea-codebooks/icons/protection.svg" alt="">Protection</li>
+    </ul>
+  </div>
+  <div class="fm-block" id="fm2" style="--fm:#1A9988">
+    <h3 class="fm-head"><img class="fm-ico" src="/ea-codebooks/icons/fm2.svg" alt="">2FM &middot; Life</h3>
+    <ul class="fep-list">
+      <li><img src="/ea-codebooks/icons/relationship.svg" alt="">Relationship</li>
+      <li><img src="/ea-codebooks/icons/time.svg" alt="">Time</li>
+      <li><img src="/ea-codebooks/icons/closeness.svg" alt="">Closeness</li>
+    </ul>
+  </div>
+  <div class="fm-block" id="fm3" style="--fm:#EB5600">
+    <h3 class="fm-head"><img class="fm-ico" src="/ea-codebooks/icons/fm3.svg" alt="">3FM &middot; The Person</h3>
+    <ul class="fep-list">
+      <li><img src="/ea-codebooks/icons/attention.svg" alt="">Attention</li>
+      <li><img src="/ea-codebooks/icons/justice.svg" alt="">Justice</li>
+      <li><img src="/ea-codebooks/icons/appreciation.svg" alt="">Appreciation</li>
+    </ul>
+  </div>
+  <div class="fm-block" id="fm4" style="--fm:#1C3678">
+    <h3 class="fm-head"><img class="fm-ico" src="/ea-codebooks/icons/fm4.svg" alt="">4FM &middot; Meaning</h3>
+    <ul class="fep-list">
+      <li><img src="/ea-codebooks/icons/field.svg" alt="">Field of Activity</li>
+      <li><img src="/ea-codebooks/icons/structure.svg" alt="">Structural Context</li>
+      <li><img src="/ea-codebooks/icons/value.svg" alt="">Value to be Realized</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<section class="codebooks" id="codebooks">
 
 <article class="codebook">
+  <img class="card-ico" src="/ea-codebooks/icons/card-4fm.svg" alt="">
   <h3>EA 4FM Codebook</h3>
   <p>A structured codebook for scoring participant testimony against <strong>Längle's Four Fundamental Motivations</strong> - the foundational framework. Built by multi-LLM cross-validation across Claude Sonnet 4.5, ChatGPT 5 Thinking, and Gemini 2.5 Turbo, using four primary Längle sources (1992, 2002, 2003, 2011). Every code traces to a verbatim Längle quote with citation.</p>
   <dl class="meta">
@@ -233,6 +368,7 @@ code {
 </article>
 
 <article class="codebook">
+  <img class="card-ico" src="/ea-codebooks/icons/card-12fep.svg" alt="">
   <h3>EA 12FEP Codebook</h3>
   <p>A structured codebook for scoring participant testimony against <strong>Längle's Twelve Fundamental Existential Prerequisites</strong> - derived from the 4FM framework, decomposing each Fundamental Motivation into three Prerequisites for finer-grained scoring. Built by the same multi-LLM consensus methodology, against two primary Längle sources (2002, 2011b).</p>
   <dl class="meta">
@@ -261,7 +397,7 @@ code {
 
 </section>
 
-<h2>How to use these codebooks</h2>
+<h2 id="how-to-use">How to use these codebooks</h2>
 
 <p>Each codebook is a JSON artifact that <strong>constrains</strong> an LLM to score participant testimony within Längle's framework, rather than letting the LLM draw on generic prior knowledge. They are not fine-tuned models and not prompts in themselves - they are structured references you provide to your LLM of choice alongside testimony.</p>
 
@@ -274,18 +410,76 @@ code {
 
 <p>The companion paper (below) walks through the three core techniques in detail - multi-LLM cross-validation, quote-anchored source verification, and iterative multi-pass with re-anchoring - that underlie both the construction and the application of these codebooks.</p>
 
-<h2>Companion paper</h2>
+<h2 id="companion">Companion paper</h2>
 
 <div class="companion">
   <p>Nelson-Zutter, G. (2026, June). <cite>"Do You Understand?!" Best Practices using Artificial Intelligence in Research (and Life)</cite> [Conference presentation]. <strong>World Congress for Existential Therapy 4 (WCET4)</strong>, Denver, CO, United States.</p>
-  <p style="margin: 0; font-size: 0.9rem; color: var(--muted);">Methodology paper DOI: forthcoming (post-conference deposit).</p>
+  <p style="margin: 0; font-size: 0.9rem; color: var(--muted);">Publish date: TBD &middot; Methodology paper DOI: forthcoming (post-conference deposit).</p>
 </div>
 
-<h2>About</h2>
+<div class="cta-row">
+  <a class="btn btn-primary" href="/ea-codebooks/Graham%20Nelson-Zutter%20-%20WCET4%20AI%20Best%20Practices%20Slides%20-%20CC%20BY-NC-ND%204.0.pdf" download>Download slides (PDF)</a>
+  <a class="btn" href="https://docs.google.com/presentation/d/1Qxyw_xfwN1I7tYsY8fT6_B6wnV5zTZBz/preview" target="_blank" rel="noopener">View on Google Slides</a>
+</div>
+
+<h2 id="about">About</h2>
 
 <p>Both codebooks were authored by <strong>Graham Nelson-Zutter</strong>, MSc student in Existential Analysis &amp; Logotherapy at the University of Salzburg, in the course of his MSc thesis on LLM-assisted qualitative analysis of psychedelic-assisted therapy participant experiences.</p>
 
 <p>The LLMs used in the methodology (Claude Sonnet 4.5, ChatGPT 5 Thinking, Gemini 2.5 Turbo, and others) are <em>research instruments</em>, not co-authors. See each codebook's <code>README.md</code> and <code>docs/lineage.md</code> for the full multi-LLM build provenance.</p>
+
+<h2 id="references">References</h2>
+<h3 class="ref-h">Längle sources (codebooks)</h3>
+<p>The codebooks anchor every code in verified quotations from Längle's primary works:</p>
+<div class="apa">
+  <p class="apa-entry">Längle, A. (1992). What are we looking for when we search for meaning? <i>Ultimate Reality and Meaning, 15</i>(4), 306–314. <a href="https://doi.org/10.3138/uram.15.4.306">https://doi.org/10.3138/uram.15.4.306</a></p>
+  <p class="apa-entry">Längle, A. (2002). Existential fundamental motivation. In <i>Motivation, Consciousness and Self-Regulation</i> (pp. 27–42). Nova Science Publishers. <a href="https://laengle.info/userfile/doc/FM-+-motivation---Leontev-Mosc-2002-2011-publ.pdf">https://laengle.info/userfile/doc/FM-+-motivation---Leontev-Mosc-2002-2011-publ.pdf</a></p>
+  <p class="apa-entry">Längle, A. (2003). The art of involving the person – Fundamental existential motivations as the structure of the motivational process. <i>European Psychotherapy, 4</i>(1), 25–36.</p>
+  <p class="apa-entry">Längle, A. (2011). The existential fundamental motivations structuring the motivational process. In D. A. Leontiev (Ed.), <i>Motivation, Consciousness and Self-Regulation</i> (pp. 27–42). Nova Science Publishers. <a href="https://laengle.info/userfile/doc/FM-+-motivation---Leontev-Mosc-2002-2011-publ.pdf">https://laengle.info/userfile/doc/FM-+-motivation---Leontev-Mosc-2002-2011-publ.pdf</a></p>
+</div>
+
+<h3 class="ref-h">AI methods &amp; limitations (companion paper)</h3>
+<p>Anchor citations for the best-practice techniques and limitations in the companion AI-methodology paper:</p>
+<div class="apa">
+  <p class="apa-entry">Balt, E., Salmi, S., Bhulai, S., Vrinzen, S., Eikelenboom, M., Gilissen, R., Creemers, D., Popma, A., &amp; Mérelle, S. (2025). Deductively coding psychosocial autopsy interview data using a few-shot learning large language model. <i>Frontiers in Public Health, 13</i>, 1512537. <a href="https://doi.org/10.3389/fpubh.2025.1512537">https://doi.org/10.3389/fpubh.2025.1512537</a></p>
+  <p class="apa-entry">Head, K. (2025). Minds in crisis: How the AI revolution is impacting mental health. <i>Journal of Mental Health &amp; Clinical Psychology, 9</i>(3). <a href="https://www.mentalhealthjournal.org/articles/minds-in-crisis-how-the-ai-revolution-is-impacting-mental-health.html">https://www.mentalhealthjournal.org/articles/minds-in-crisis-how-the-ai-revolution-is-impacting-mental-health.html</a></p>
+  <p class="apa-entry">Jayawardene, V., &amp; Ewing, M. T. (2026). Generative AI-augmented thematic analysis. <i>International Journal of Market Research, 68</i>(2), 162–193. <a href="https://doi.org/10.1177/14707853251405043">https://doi.org/10.1177/14707853251405043</a></p>
+  <p class="apa-entry">Linardon, J., Jarman, H. K., McClure, Z., Anderson, C., Liu, C., &amp; Messer, M. (2025). Influence of topic familiarity and prompt specificity on citation fabrication in mental health research using large language models: Experimental study. <i>JMIR Mental Health, 12</i>, e80371. <a href="https://doi.org/10.2196/80371">https://doi.org/10.2196/80371</a></p>
+  <p class="apa-entry">Maes, S. (2025). <i>Fixing reference hallucinations of LLMs</i> [Preprint]. OSF. <a href="https://doi.org/10.31219/osf.io/u38w4_v2">https://doi.org/10.31219/osf.io/u38w4_v2</a></p>
+  <p class="apa-entry">Mathis, W. S., Zhao, S., Pratt, N., Weleff, J., &amp; De Paoli, S. (2024). Inductive thematic analysis of healthcare qualitative interviews using open-source large language models: How does it compare to traditional methods? <i>Computer Methods and Programs in Biomedicine, 255</i>, 108356. <a href="https://doi.org/10.1016/j.cmpb.2024.108356">https://doi.org/10.1016/j.cmpb.2024.108356</a></p>
+  <p class="apa-entry">McBain, R. K., Cantor, J. H., Zhang, L. A., Baker, O., Zhang, F., Burnett, A., Kofner, A., Breslau, J., Stein, B. D., Mehrotra, A., &amp; Yu, H. (2025). Evaluation of alignment between large language models and expert clinicians in suicide risk assessment. <i>Psychiatric Services</i>. <a href="https://doi.org/10.1176/appi.ps.20250086">https://doi.org/10.1176/appi.ps.20250086</a></p>
+  <p class="apa-entry">Raile, P. (2024). The usefulness of ChatGPT for psychotherapists and patients. <i>Humanities and Social Sciences Communications, 11</i>(1), 47. <a href="https://doi.org/10.1057/s41599-023-02567-0">https://doi.org/10.1057/s41599-023-02567-0</a></p>
+  <p class="apa-entry">Sharma, A., Cochrane, K., &amp; Wallace, J. R. (2025). <i>DeTAILS: Deep thematic analysis with iterative LLM support</i> [Preprint]. arXiv. <a href="https://doi.org/10.48550/arXiv.2510.17575">https://doi.org/10.48550/arXiv.2510.17575</a></p>
+</div>
+
+<h2 id="cite">Cite this</h2>
+<p>Both codebooks are archived on Zenodo (CC BY-NC-ND 4.0). Full APA citation, with RIS / BibTeX downloads for each:</p>
+<div class="cite-list">
+  <div class="cite-row"><p class="cite-row-text">Nelson-Zutter, G. (2026). <em>EA 4FM Codebook for LLM-Assisted Qualitative Analysis</em> [Dataset]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20483207">https://doi.org/10.5281/zenodo.20483207</a></p><details class="cite"><summary class="btn cite-btn">Cite</summary><div class="cite-menu" role="menu">
+    <button type="button" class="cite-item cite-copy" data-copy="Nelson-Zutter, G. (2026). EA 4FM Codebook for LLM-Assisted Qualitative Analysis [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.20483207">Copy APA citation</button>
+    <button type="button" class="cite-item cite-copy" data-copy="Graham Nelson-Zutter (2026). EA 4FM Codebook for LLM-Assisted Qualitative Analysis. Zenodo. https://doi.org/10.5281/zenodo.20483207">Copy plain text</button>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="/ea-codebooks/citations/ea-4fm-codebook.ris" download>Download RIS (.ris)</a>
+    <a class="cite-item" href="/ea-codebooks/citations/ea-4fm-codebook.bib" download>Download BibTeX (.bib)</a>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="https://doi.org/10.5281/zenodo.20483207" target="_blank" rel="noopener">View DOI</a>
+    <a class="cite-item" href="https://zenodo.org/records/20483207#export-record" target="_blank" rel="noopener">More formats (Zenodo)</a>
+  </div></details></div>
+  <div class="cite-row"><p class="cite-row-text">Nelson-Zutter, G. (2026). <em>EA 12FEP Codebook for LLM-Assisted Qualitative Analysis</em> [Dataset]. Zenodo. <a href="https://doi.org/10.5281/zenodo.20481464">https://doi.org/10.5281/zenodo.20481464</a></p><details class="cite"><summary class="btn cite-btn">Cite</summary><div class="cite-menu" role="menu">
+    <button type="button" class="cite-item cite-copy" data-copy="Nelson-Zutter, G. (2026). EA 12FEP Codebook for LLM-Assisted Qualitative Analysis [Dataset]. Zenodo. https://doi.org/10.5281/zenodo.20481464">Copy APA citation</button>
+    <button type="button" class="cite-item cite-copy" data-copy="Graham Nelson-Zutter (2026). EA 12FEP Codebook for LLM-Assisted Qualitative Analysis. Zenodo. https://doi.org/10.5281/zenodo.20481464">Copy plain text</button>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="/ea-codebooks/citations/ea-12fep-codebook.ris" download>Download RIS (.ris)</a>
+    <a class="cite-item" href="/ea-codebooks/citations/ea-12fep-codebook.bib" download>Download BibTeX (.bib)</a>
+    <div class="cite-sep"></div>
+    <a class="cite-item" href="https://doi.org/10.5281/zenodo.20481464" target="_blank" rel="noopener">View DOI</a>
+    <a class="cite-item" href="https://zenodo.org/records/20481464#export-record" target="_blank" rel="noopener">More formats (Zenodo)</a>
+  </div></details></div>
+</div>
+
+<h2 id="collaborate">Collaborate</h2>
+<p>Building on these codebooks, or on the multi-LLM methodology, in your own research? Share your email below and I'll be in touch about collaborating.</p>
+<div class="ml-embedded" data-form="beH0Pg"></div>
 
 <footer>
   <p class="cc-icons" aria-label="License: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International">
@@ -304,6 +498,37 @@ code {
 
 </main>
 <script>
+(function () {
+  var nav = document.getElementById('sidenav');
+  if (!nav) return;
+  var toggle = nav.querySelector('.sidenav-toggle');
+  var links = Array.prototype.slice.call(nav.querySelectorAll('.sidenav-list a'));
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.forEach(function (a) {
+    a.addEventListener('click', function () { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); });
+  });
+  var map = {};
+  var targets = links.map(function (a) {
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) map[id] = a;
+    return el;
+  }).filter(Boolean);
+  if ('IntersectionObserver' in window && targets.length) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove('active'); });
+          if (map[en.target.id]) map[en.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    targets.forEach(function (t) { obs.observe(t); });
+  }
+})();
 (function(){
   function flash(b){var o=b.textContent;b.textContent="Copied ✓";b.classList.add('cite-copied');setTimeout(function(){b.textContent=o;b.classList.remove('cite-copied');},1500);}
   function fallback(t,b){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');flash(b);}catch(e){}document.body.removeChild(ta);}
@@ -334,5 +559,6 @@ code {
   });
 })();
 </script>
+
 </body>
 </html>
