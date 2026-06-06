@@ -34,6 +34,17 @@ audio{width:100%;}
 .downloads{font-family:var(--sans);font-size:.85rem;color:var(--muted);margin:1.25rem 0;display:flex;gap:.5rem;flex-wrap:wrap;}
 .btn{display:inline-block;padding:.4rem .85rem;font-family:var(--sans);font-size:.85rem;border:1px solid var(--accent);border-radius:3px;text-decoration:none;background:#fff;color:var(--accent);}
 .btn:hover{background:var(--accent-bg);}
+.cite{position:relative;display:inline-block;}
+.cite>summary{list-style:none;cursor:pointer;white-space:nowrap;}
+.cite>summary::-webkit-details-marker{display:none;}
+.cite>summary::marker{content:"";}
+.cite-btn::after{content:" \25BE";font-size:.8em;}
+.cite[open]>.cite-btn::after{content:" \25B4";}
+.cite-menu{position:absolute;top:calc(100% + 4px);left:0;z-index:50;min-width:230px;max-width:calc(100vw - 3rem);background:#fff;border:1px solid var(--line);border-radius:6px;box-shadow:0 6px 20px rgba(0,0,0,.14);padding:.3rem;}
+.cite-item{display:block;width:100%;text-align:left;background:none;border:none;font-family:var(--sans);font-size:.84rem;color:var(--text);padding:.45rem .6rem;border-radius:4px;cursor:pointer;text-decoration:none;box-sizing:border-box;line-height:1.3;}
+.cite-item:hover,.cite-item:focus{background:var(--accent-bg);color:var(--accent);outline:none;}
+.cite-sep{height:1px;background:var(--line);margin:.25rem .3rem;}
+.cite-copied{color:var(--accent);font-weight:600;}
 footer{margin-top:2.5rem;padding-top:1.25rem;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted);font-family:var(--sans);}
 footer a{color:var(--accent);}
 .cc-icons{margin:.1rem 0 .6rem;}
@@ -83,7 +94,19 @@ html { scroll-behavior: smooth; }
   <a class="btn" href="/ea-meditations/transcripts/Graham%20Nelson-Zutter%20-%20EA%20FM3%20Meditation%20Transcript%20-%20CC%20BY-NC-ND%204.0.txt">Plain text</a>
   <a class="btn" href="/ea-meditations/transcripts/Graham%20Nelson-Zutter%20-%20EA%20FM3%20Meditation%20Captions%20-%20CC%20BY-NC-ND%204.0.vtt">Captions (VTT)</a>
   <a class="btn" href="/ea-meditations/transcripts/Graham%20Nelson-Zutter%20-%20EA%20FM3%20Meditation%20Word-Timings%20-%20CC%20BY-NC-ND%204.0.csv">Word timings (CSV)</a>
-  <a class="btn" href="https://doi.org/10.5281/zenodo.20544716" target="_blank" rel="noopener">DOI</a>
+  <details class="cite">
+    <summary class="btn cite-btn">Cite</summary>
+    <div class="cite-menu" role="menu">
+      <button type="button" class="cite-item cite-copy" data-copy="Nelson-Zutter, G. (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — 3FM: May I be myself? (The Person) [Audio recording]. Zenodo. https://doi.org/10.5281/zenodo.20544716">Copy APA citation</button>
+      <button type="button" class="cite-item cite-copy" data-copy="Graham Nelson-Zutter (2026). Accessing Längle's Four Fundamental Motivations through guided meditation — 3FM: May I be myself? (The Person). Zenodo. https://doi.org/10.5281/zenodo.20544716">Copy plain text</button>
+      <div class="cite-sep"></div>
+      <a class="cite-item" href="/ea-meditations/citations/ea-4fm-fm3.ris" download>Download RIS (.ris)</a>
+      <a class="cite-item" href="/ea-meditations/citations/ea-4fm-fm3.bib" download>Download BibTeX (.bib)</a>
+      <div class="cite-sep"></div>
+      <a class="cite-item" href="https://doi.org/10.5281/zenodo.20544716" target="_blank" rel="noopener">View DOI</a>
+      <a class="cite-item" href="https://zenodo.org/records/20544716#export-record" target="_blank" rel="noopener">More formats (Zenodo)</a>
+    </div>
+  </details>
   <a class="btn" href="https://github.com/aestra-research/ea-4fm-fm3" target="_blank" rel="noopener">Source</a>
 </div>
 
@@ -334,6 +357,15 @@ html { scroll-behavior: smooth; }
   document.addEventListener("DOMContentLoaded", function () {
     new HyperaudioLite("hypertranscript", "hyperplayer", false, true, false, false, true);
   });
+</script>
+<script>
+(function(){
+  function flash(b){var o=b.textContent;b.textContent="Copied ✓";b.classList.add('cite-copied');setTimeout(function(){b.textContent=o;b.classList.remove('cite-copied');},1500);}
+  function fallback(t,b){var ta=document.createElement('textarea');ta.value=t;ta.setAttribute('readonly','');ta.style.position='absolute';ta.style.left='-9999px';document.body.appendChild(ta);ta.select();try{document.execCommand('copy');flash(b);}catch(e){}document.body.removeChild(ta);}
+  document.querySelectorAll('.cite-copy').forEach(function(b){b.addEventListener('click',function(){var t=b.getAttribute('data-copy')||'';if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){flash(b);},function(){fallback(t,b);});}else{fallback(t,b);}});});
+  document.addEventListener('click',function(e){document.querySelectorAll('details.cite[open]').forEach(function(d){if(!d.contains(e.target))d.removeAttribute('open');});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')document.querySelectorAll('details.cite[open]').forEach(function(d){d.removeAttribute('open');});});
+})();
 </script>
 </body>
 </html>
