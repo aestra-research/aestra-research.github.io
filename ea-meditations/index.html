@@ -79,6 +79,8 @@ a:hover { text-decoration: none; }
   margin: 0.5rem 0 0;
 }
 .anchors strong { color: var(--accent); font-weight: 600; }
+.anchors .fep { white-space: nowrap; }
+.fep-ico { width: 1.05em; height: 1.05em; vertical-align: -0.18em; margin-right: 0.22em; }
 .cta-row { margin-top: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .btn {
   display: inline-block;
@@ -219,8 +221,16 @@ footer p { margin: 0 0 0.5rem; }
 .sidenav-list a:hover, .sidenav-list a.active { background: var(--accent-bg); color: var(--accent); }
 .sidenav-sub { list-style: none; margin: 0; padding: 0; }
 .sidenav-sub a { padding-left: 2rem; font-size: .82rem; color: var(--muted); }
-#meditations, #about, #workshop, #influences, #cite, #license, #interest,
+#meditations, #about, #workshop, #influences, #cite, #license, #interest, #framework,
 #fm1, #fm2, #fm3, #fm4 { scroll-margin-top: 4rem; }
+.fm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin: 1.25rem 0 0; }
+.fm-block { border: 1px solid var(--line); border-left: 4px solid var(--fm, var(--accent)); border-radius: 4px; padding: 1rem 1.25rem; background: #fff; }
+.fm-head { display: flex; align-items: center; gap: .5rem; margin: 0 0 .65rem; font-family: var(--sans); font-size: 1rem; font-weight: 600; color: var(--fm, var(--accent)); }
+.fm-head img { width: 1.7rem; height: 1.7rem; }
+.fep-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .45rem; }
+.fep-list li { display: flex; align-items: center; gap: .55rem; font-family: var(--sans); font-size: .9rem; }
+.fep-list img { width: 1.3rem; height: 1.3rem; flex: 0 0 auto; }
+@media (max-width: 560px) { .fm-grid { grid-template-columns: 1fr; } }
 @media (min-width: 1200px) {
   .sidenav { position: fixed; top: 50%; transform: translateY(-50%);
     left: max(1.5rem, calc((100vw - 720px) / 2 - 210px)); width: 190px;
@@ -270,6 +280,7 @@ footer p { margin: 0 0 0.5rem; }
   </button>
   <p class="sidenav-title">On this page</p>
   <ul class="sidenav-list" id="sidenav-list">
+    <li><a href="#framework">The framework</a></li>
     <li><a href="#meditations">The four meditations</a>
       <ul class="sidenav-sub">
         <li><a href="#fm1"><img class="nav-ico" src="/ea-meditations/icons/fm1.svg" alt="">1FM &middot; The World</a></li>
@@ -300,6 +311,45 @@ footer p { margin: 0 0 0.5rem; }
   <p>The meditations are led live in the workshop; the recordings below are the take-home version, to revisit in your own time.</p>
 </section>
 
+<section id="framework">
+<h2>The framework</h2>
+<p>Each meditation walks one of Längle's <strong>Four Fundamental Motivations</strong> and gently surfaces its three <strong>Fundamental Existential Prerequisites</strong> (FEPs) - twelve in all.</p>
+<div class="fm-grid">
+  <div class="fm-block" style="--fm:#6AA4C8">
+    <h3 class="fm-head"><img class="fm-ico" src="/ea-meditations/icons/fm1.svg" alt="">1FM &middot; The World</h3>
+    <ul class="fep-list">
+      <li><img src="/ea-meditations/icons/support.svg" alt="">Support</li>
+      <li><img src="/ea-meditations/icons/space.svg" alt="">Space</li>
+      <li><img src="/ea-meditations/icons/protection.svg" alt="">Protection</li>
+    </ul>
+  </div>
+  <div class="fm-block" style="--fm:#1A9988">
+    <h3 class="fm-head"><img class="fm-ico" src="/ea-meditations/icons/fm2.svg" alt="">2FM &middot; Life</h3>
+    <ul class="fep-list">
+      <li><img src="/ea-meditations/icons/relationship.svg" alt="">Relationship</li>
+      <li><img src="/ea-meditations/icons/time.svg" alt="">Time</li>
+      <li><img src="/ea-meditations/icons/closeness.svg" alt="">Closeness</li>
+    </ul>
+  </div>
+  <div class="fm-block" style="--fm:#EB5600">
+    <h3 class="fm-head"><img class="fm-ico" src="/ea-meditations/icons/fm3.svg" alt="">3FM &middot; The Person</h3>
+    <ul class="fep-list">
+      <li><img src="/ea-meditations/icons/attention.svg" alt="">Attention</li>
+      <li><img src="/ea-meditations/icons/justice.svg" alt="">Justice</li>
+      <li><img src="/ea-meditations/icons/appreciation.svg" alt="">Appreciation</li>
+    </ul>
+  </div>
+  <div class="fm-block" style="--fm:#1C3678">
+    <h3 class="fm-head"><img class="fm-ico" src="/ea-meditations/icons/fm4.svg" alt="">4FM &middot; Meaning</h3>
+    <ul class="fep-list">
+      <li><img src="/ea-meditations/icons/field.svg" alt="">Field of Activity</li>
+      <li><img src="/ea-meditations/icons/structure.svg" alt="">Structural Context</li>
+      <li><img src="/ea-meditations/icons/value.svg" alt="">Value to be Realized</li>
+    </ul>
+  </div>
+</div>
+</section>
+
 <h2 id="meditations">The four meditations</h2>
 
 <section class="codebooks">
@@ -309,7 +359,7 @@ footer p { margin: 0 0 0.5rem; }
   <h3>1FM · Can I be here?</h3>
   <p class="question">The World - perceiving what already holds, opens, and protects.</p>
   <p>A downward body scan that receives the support of floor and chair, lets the breath disclose the space within, and meets the skin as a flexible boundary - arriving at a place that asks nothing of you.</p>
-  <p class="anchors">Prerequisites: <strong>Support</strong> · <strong>Space</strong> · <strong>Protection</strong></p>
+  <p class="anchors">Prerequisites: <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/support.svg" alt=""><strong>Support</strong></span> · <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/space.svg" alt=""><strong>Space</strong></span> · <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/protection.svg" alt=""><strong>Protection</strong></span></p>
   <p class="listen"><img class="listen-ico" src="/ea-meditations/icons/headset.svg" alt="">Listen</p>
   <audio controls preload="none" style="width:100%; margin-top:0.2rem">
     <source src="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM1%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" type="audio/mp4">
@@ -341,7 +391,7 @@ footer p { margin: 0 0 0.5rem; }
   <h3>2FM · Do I like being alive?</h3>
   <p class="question">Life - relationship, time, and nearness to what is living.</p>
   <p>Support deepens through the building into the earth; the breath is shared with a tree you come to sit beneath, resting your back against its trunk - time given freely, nothing required.</p>
-  <p class="anchors">Prerequisites: <strong>Relationship</strong> · <strong>Time</strong> · <strong>Closeness</strong></p>
+  <p class="anchors">Prerequisites: <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/relationship.svg" alt=""><strong>Relationship</strong></span> · <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/time.svg" alt=""><strong>Time</strong></span> · <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/closeness.svg" alt=""><strong>Closeness</strong></span></p>
   <p class="listen"><img class="listen-ico" src="/ea-meditations/icons/headset.svg" alt="">Listen</p>
   <audio controls preload="none" style="width:100%; margin-top:0.2rem">
     <source src="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM2%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" type="audio/mp4">
@@ -373,7 +423,7 @@ footer p { margin: 0 0 0.5rem; }
   <h3>3FM · May I be myself?</h3>
   <p class="question">The Person - a short journey of attention, justice, and appreciation.</p>
   <p>A walk inward to a picnic table where you draw the tree for the pleasure of it, then share the drawings with a friend who remembered your favourite drink - vulnerability met with enthusiasm.</p>
-  <p class="anchors">Prerequisites: <strong>Attention</strong> · <strong>Justice</strong> · <strong>Appreciation</strong></p>
+  <p class="anchors">Prerequisites: <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/attention.svg" alt=""><strong>Attention</strong></span> · <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/justice.svg" alt=""><strong>Justice</strong></span> · <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/appreciation.svg" alt=""><strong>Appreciation</strong></span></p>
   <p class="listen"><img class="listen-ico" src="/ea-meditations/icons/headset.svg" alt="">Listen</p>
   <audio controls preload="none" style="width:100%; margin-top:0.2rem">
     <source src="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM3%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" type="audio/mp4">
@@ -405,7 +455,7 @@ footer p { margin: 0 0 0.5rem; }
   <h3>4FM · What should I live for?</h3>
   <p class="question">Meaning - the long arc of a seed that outlives you.</p>
   <p>The tree's fruit is also a seed; you plant, tend, and transplant it, watch a community gather beneath the grown tree, and leave behind something beautiful - a future stranger carrying the next seed home.</p>
-  <p class="anchors">Prerequisites: <strong>Field of Activity</strong> · <strong>Structural Context</strong> · <strong>Value to be Realized</strong></p>
+  <p class="anchors">Prerequisites: <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/field.svg" alt=""><strong>Field of Activity</strong></span> · <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/structure.svg" alt=""><strong>Structural Context</strong></span> · <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/value.svg" alt=""><strong>Value to be Realized</strong></span></p>
   <p class="listen"><img class="listen-ico" src="/ea-meditations/icons/headset.svg" alt="">Listen</p>
   <audio controls preload="none" style="width:100%; margin-top:0.2rem">
     <source src="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM4%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" type="audio/mp4">
