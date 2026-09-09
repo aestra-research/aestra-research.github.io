@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A Preflight Checklist - Aestra Research</title>
+<meta name="description" content="Twelve questions to ask yourself before a psychedelic journey, drawn from Alfried Längle's Four Fundamental Motivations. Free worksheets and four guided meditations.">
+<style>
+:root {
+  --text: #1a1a1a;
+  --muted: #555;
+  --line: #d9d9d9;
+  --bg: #fafafa;
+  --accent: #2a4d6e;
+  --accent-bg: #eef3f8;
+  --serif: Charter, Georgia, Cambria, "Times New Roman", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+* { box-sizing: border-box; }
+html { font-size: 17px; }
+body {
+  font-family: var(--serif);
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.55;
+  margin: 0;
+  padding: 2.5rem 1.5rem 4rem;
+  -webkit-font-smoothing: antialiased;
+}
+main { max-width: 720px; margin: 0 auto; }
+header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+h1 {
+  font-family: var(--sans);
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.25rem;
+  color: var(--accent);
+}
+.tagline { font-style: italic; color: var(--muted); margin: 0; font-size: 1.05rem; }
+.crumb {
+  font-family: var(--sans); font-size: 0.85rem; color: var(--muted);
+  margin: 0 0 0.9rem;
+}
+.crumb a { color: var(--muted); }
+h2 {
+  font-family: var(--sans);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 2.5rem 0 0.75rem;
+  color: var(--accent);
+}
+h3 {
+  font-family: var(--sans); font-size: 1.1rem; font-weight: 600;
+  margin: 0 0 0.4rem; color: var(--accent);
+}
+p { margin: 0 0 0.85rem; }
+a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+a:hover { text-decoration: none; }
+.intro { font-size: 1.05rem; margin-bottom: 1.5rem; }
+
+.weeks { display: grid; gap: 1.25rem; margin: 1.25rem 0 0; }
+.week {
+  border: 1px solid var(--line); border-radius: 4px;
+  padding: 1.25rem 1.5rem; background: #fff;
+}
+.week .fm {
+  font-family: var(--sans); font-size: 0.75rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted);
+  margin: 0 0 0.35rem;
+}
+.week .triad {
+  font-family: var(--sans); font-size: 0.85rem; color: var(--muted);
+  margin: 0 0 0.6rem;
+}
+.week p { font-size: 0.97rem; margin-bottom: 0.85rem; }
+.btn {
+  display: inline-block; font-family: var(--sans); font-size: 0.85rem;
+  border: 1px solid var(--accent); border-radius: 3px;
+  padding: 0.35rem 0.75rem; margin: 0 0.4rem 0.4rem 0;
+  color: var(--accent); text-decoration: none; background: #fff;
+}
+.btn:hover { background: var(--accent-bg); text-decoration: none; }
+.btn .min { color: var(--muted); font-size: 0.92em; }
+
+ol.steps { margin: 1rem 0 0; padding-left: 1.3rem; }
+ol.steps li { margin-bottom: 0.7rem; }
+ol.steps strong { font-family: var(--sans); font-size: 0.92rem; }
+
+.note {
+  background: var(--accent-bg);
+  border-left: 3px solid var(--accent);
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 3px 3px 0;
+}
+.note p:last-child { margin-bottom: 0; }
+.note .lbl {
+  font-family: var(--sans); font-size: 0.78rem; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);
+  margin: 0 0 0.4rem;
+}
+ul.plain { margin: 0.75rem 0 0; padding-left: 1.2rem; }
+ul.plain li { margin-bottom: 0.4rem; font-size: 0.97rem; }
+
+.ref-h {
+  font-family: var(--sans); font-size: 1rem; color: var(--accent);
+  margin: 1.6rem 0 0.6rem;
+}
+.apa-entry {
+  font-size: 0.88rem; line-height: 1.45;
+  padding-left: 1.4rem; text-indent: -1.4rem; margin: 0 0 0.6rem;
+}
+.apa-entry a { color: var(--accent); word-break: break-word; }
+.caveat { color: #8a5a2b; }
+.aside { font-size: 0.88rem; color: var(--muted); margin-top: 1rem; }
+
+footer {
+  margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
+  font-size: 0.87rem; color: var(--muted); font-family: var(--sans);
+}
+footer p { margin: 0 0 0.5rem; }
+@media (max-width: 480px) {
+  body { padding: 1.5rem 1rem 3rem; }
+  html { font-size: 16px; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <p class="crumb"><a href="/">Aestra Research</a> &rsaquo; A Preflight Checklist</p>
+  <h1>A Preflight Checklist</h1>
+  <p class="tagline">Twelve questions to ask yourself before a psychedelic journey</p>
+</header>
+
+<section class="intro">
+  <p>Pilots do not run a checklist because they are bad at flying. They run it because the
+  cost of finding out mid-air is too high. This is the same idea, for the four weeks before a
+  journey.</p>
+  <p>The twelve conditions come from Alfried Längle's Existential Analysis. His account is
+  that a person needs four things in order to say yes to their own existence, and that each
+  of the four rests on three conditions. Twelve in all. They were being asked in consulting
+  rooms for decades before anyone pointed them at psychedelics.</p>
+  <p><a class="btn" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Checklist%20-%20CC%20BY-NC-ND%204.0.pdf">Download the whole booklet (PDF, 7 pages)</a></p>
+</section>
+
+<h2>Four weeks, four meditations, twelve questions</h2>
+<p>One Fundamental Motivation a week, in order. They build on one another: the second assumes
+the first, and the fourth assumes all three. Please listen to each meditation before you look
+at that week's questions.</p>
+
+<section class="weeks">
+
+  <article class="week">
+    <p class="fm">Week 1 &middot; FM1 &middot; Grounded &middot; The World</p>
+    <h3>Can I be?</h3>
+    <p class="triad">Support &middot; Space &middot; Protection</p>
+    <p>The ground floor. Whether the world holds you, or whether you are holding yourself
+    up.</p>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20544710">Meditation <span class="min">15&ndash;20 min</span></a>
+    <a class="btn" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%201%20Can%20I%20Be%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
+  </article>
+
+  <article class="week">
+    <p class="fm">Week 2 &middot; FM2 &middot; Relationships &middot; Life</p>
+    <h3>Do I like being?</h3>
+    <p class="triad">Time &middot; Closeness &middot; Relating</p>
+    <p>Not whether life is going well, but whether you are in touch with it, and whether
+    anything still reaches you.</p>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20544714">Meditation <span class="min">30&ndash;35 min</span></a>
+    <a class="btn" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%202%20Do%20I%20Like%20Being%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
+  </article>
+
+  <article class="week">
+    <p class="fm">Week 3 &middot; FM3 &middot; Offer &middot; The Person</p>
+    <h3>Am I allowed to be me?</h3>
+    <p class="triad">Attention &middot; Appreciation &middot; Justice</p>
+    <p>Whether you have the right to be who you actually are, in front of other people,
+    without editing or masking.</p>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20544716">Meditation <span class="min">35&ndash;40 min</span></a>
+    <a class="btn" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%203%20May%20I%20Be%20Me%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
+  </article>
+
+  <article class="week">
+    <p class="fm">Week 4 &middot; FM4 &middot; Wholeness &middot; Meaning</p>
+    <h3>For what should I live?</h3>
+    <p class="triad">Greater Context &middot; Field of Activity &middot; Future Value</p>
+    <p>What your life is for. Not in the abstract, but the thing that is actually asking to
+    be done.</p>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20544718">Meditation <span class="min">40&ndash;45 min</span></a>
+    <a class="btn" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%204%20What%20Should%20I%20Live%20For%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
+  </article>
+
+</section>
+
+<p class="aside">All four meditations, with transcripts and captions, are at
+<a href="/ea-meditations/">research.aestra.ca/ea-meditations</a>.</p>
+
+<h2>Four moments each week</h2>
+<ol class="steps">
+  <li><strong>Tune in.</strong> Listen to the meditation for that Fundamental Motivation.
+    Nothing to answer yet.</li>
+  <li><strong>Sit or lay.</strong> When the meditation is over, give yourself two or three
+    minutes with nothing to do. This is part of it.</li>
+  <li><strong>Reflect.</strong> Three questions, one per existential need. Best to write by
+    hand if you can; an audio note works too.</li>
+  <li><strong>Leave space.</strong> Come back to the page later in the week and add what
+    surfaced. The first answer is rarely the whole answer.</li>
+</ol>
+
+<div class="note">
+  <p class="lbl">If a question comes up empty</p>
+  <p>Some of these questions may come up empty, and that is worth as much as a full page.
+  Perhaps more. An empty line is telling you something, and it does not require you to do
+  anything about it today. You can just sit with it for now. And if several come up empty at
+  once, or if what surfaces is more than you want to hold on your own, I encourage you to
+  take it to someone before you take it into a journey: a therapist, a doctor, or a person
+  who knows you well.</p>
+</div>
+
+<h2>What this is not</h2>
+<ul class="plain">
+  <li>Not a test, and not a score. Nothing here adds up to a number.</li>
+  <li>Not a diagnosis. It describes what you can say today, not what is true of you.</li>
+  <li>Not a clearance to proceed, and not medical advice.</li>
+  <li>Not a substitute for a therapist, a doctor, or a person who knows you.</li>
+  <li>Not an encouragement to take anything. What you do is your own decision, and the law
+    where you live is your own responsibility.</li>
+</ul>
+
+<h2>Sources</h2>
+<p>The structure is Längle's and the questions were already written. Almost nothing here was
+invented for the talk.</p>
+
+<p class="ref-h">Academic</p>
+
+<p class="apa-entry">Bartlett, C., Marshall, M., &amp; Marshall, A. (2012). Two-eyed seeing and
+other lessons learned within a co-learning journey of bringing together Indigenous and
+mainstream knowledges and ways of knowing. <em>Journal of Environmental Studies and Sciences,
+2</em>, 331&ndash;340. <a href="https://doi.org/10.1007/s13412-012-0086-8">https://doi.org/10.1007/s13412-012-0086-8</a></p>
+
+<p class="apa-entry">Buber, M. (1937). <em>I and thou</em> (R. G. Smith, Trans.). T. &amp; T.
+Clark. (Original work published 1923)</p>
+
+<p class="apa-entry">Frankl, V. E. (1985). <em>Man's search for meaning</em>. Simon &amp;
+Schuster.</p>
+
+<p class="apa-entry">Längle, A. (2002). <em>Existential fundamental motivation</em>.
+International Federation of Psychotherapy.</p>
+
+<p class="apa-entry">Längle, A. (2011). The existential fundamental motivations structuring the
+motivational process. In <em>Motivation, consciousness and self-regulation</em> (pp.
+27&ndash;42). Nova Science Publishers.</p>
+
+<p class="apa-entry">Längle, A. (2020&ndash;2022). <em>Student manuals for existential analysis
+(logotherapy): 1st to 4th fundamental motivations</em>. Existential Analysis Society of
+Canada.</p>
+
+<p class="apa-entry">Lima, M. de (2014). The case of María Sabina. Palgrave Macmillan.</p>
+
+<p class="apa-entry">Marshall, A. (2023). <em>The gift of two-eyed seeing</em>. First Nations
+Education Administrators Association.</p>
+
+<p class="apa-entry">Nelson-Zutter, G. (2026). <em>Accessing Längle's four fundamental
+motivations through guided meditation</em> [Audio recordings]. Zenodo.
+<a href="https://doi.org/10.5281/zenodo.20544710">FM1</a> &middot;
+<a href="https://doi.org/10.5281/zenodo.20544714">FM2</a> &middot;
+<a href="https://doi.org/10.5281/zenodo.20544716">FM3</a> &middot;
+<a href="https://doi.org/10.5281/zenodo.20544718">FM4</a></p>
+
+<p class="apa-entry">Shumskiy, V. B., Osin, E., &amp; Ukolova, E. M. (2017). Psychometrics in
+pursuit of existence: A new version of the test of existential motivations.
+<em>Existenzanalyse, 34</em>, 123&ndash;138.</p>
+
+<p class="apa-entry">Siff, S. (2018). R. Gordon Wasson and the publicity campaign to introduce
+magic mushrooms to mid-century America. <em>Revue française d'études américaines, 156</em>,
+91&ndash;104. <a href="https://doi.org/10.3917/rfea.156.0091">https://doi.org/10.3917/rfea.156.0091</a></p>
+
+<p class="aside">The twelve questions on the worksheets are adapted from the Test of Existential
+Motivations (Shumskiy, Osin &amp; Ukolova, 2017), opened out so each can be answered rather
+than rated, and paired with its negative pole. Längle's own diagnostic question sits under
+each one.</p>
+
+<p class="ref-h">Images used in the talk</p>
+
+<p class="apa-entry">Airbus A320 schematic. Dtom, public domain, via Wikimedia Commons.</p>
+
+<p class="apa-entry">M. C. Escher, <em>Relativity</em> (1953). &copy; The M.C. Escher Company
+B.V. <span class="caveat">Shown in a non-commercial talk; permission required for any further
+use.</span></p>
+
+<p class="apa-entry">Truffle ceremony room. Spinoza, <a href="https://spinoza.co">spinoza.co</a>.</p>
+
+<p class="apa-entry">Photographs by Alessandro Erbetta, Chris Lawton, Mohammad Ali Mohtashami,
+Luke Porter and Dns Dgn, via <a href="https://unsplash.com">Unsplash</a>, used under the
+Unsplash License.</p>
+
+<p class="apa-entry">Viktor Frankl. Photo by Prof. Dr. Franz Vesely, CC BY-SA 3.0 DE, via
+Wikimedia Commons.</p>
+
+<p class="apa-entry">Alfried Längle. Photo by Regina Längle, CC BY-SA 4.0, via Wikimedia
+Commons.</p>
+
+<p class="apa-entry">Martin Buber as a student in Vienna, c. 1896. Martin Buber Archive, The
+National Library of Israel, Jerusalem / Courtesy of the Martin Buber Literary Estate.</p>
+
+<p class="apa-entry">María Sabina Magdalena García and Elder Albert Marshall.
+<span class="caveat">Photographers to be confirmed.</span></p>
+
+<div class="note">
+  <p class="lbl">With thanks</p>
+  <p>This work would not exist without the knowledge keepers who carried these medicines:
+  María Sabina Magdalena García and the Mazatec people of Huautla de Jiménez above all, whose
+  knowledge reached the West at a cost to her that she did not consent to and did not recover
+  from. Elder Albert Marshall's <em>Etuaptmumk</em>, Two-Eyed Seeing, is the practice this page
+  hopes to honour: the strength of Indigenous knowledge in one eye, the strength of Western
+  knowledge in the other, and the skill to use both together.</p>
+</div>
+
+<footer>
+  <p>Worksheets and meditations by Graham Nelson-Zutter, MSc student, Existential Analysis
+    &amp; Logotherapy, University of Salzburg. Licensed
+    <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a>.
+    &copy; 2026 Aestra Inc., except where an external source is noted.</p>
+  <p>Contact: <a href="mailto:graham@aestra.ca">graham@aestra.ca</a>  ·  ORCID
+    <a href="https://orcid.org/0009-0003-9567-6512">0009-0003-9567-6512</a></p>
+</footer>
+
+</main>
+</body>
+</html>
