@@ -4,8 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>A Preflight Checklist - Aestra Research</title>
-<meta name="description" content="Twelve questions to ask yourself before a psychedelic journey, drawn from Alfried Längle's Four Fundamental Motivations. Free worksheets and four guided meditations.">
+<meta name="description" content="Twelve questions to ask yourself before a psychedelic journey, drawn from Alfried Längle's Four Fundamental Motivations. Four guided meditations and a worksheet for each week.">
 <style>
+/* Tokens, layout and card styles are lifted from /ea-meditations/ so the two sections
+   are the same site. The audio players are the same native controls, pointed at the same
+   files, and the icons are referenced in place rather than duplicated. */
 :root {
   --text: #1a1a1a;
   --muted: #555;
@@ -17,120 +20,187 @@
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 * { box-sizing: border-box; }
-html { font-size: 17px; }
+html { font-size: 17px; scroll-behavior: smooth; }
 body {
-  font-family: var(--serif);
-  color: var(--text);
-  background: var(--bg);
-  line-height: 1.55;
-  margin: 0;
-  padding: 2.5rem 1.5rem 4rem;
+  font-family: var(--serif); color: var(--text); background: var(--bg);
+  line-height: 1.55; margin: 0; padding: 2.5rem 1.5rem 4rem;
   -webkit-font-smoothing: antialiased;
 }
 main { max-width: 720px; margin: 0 auto; }
-header {
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 1.5rem;
-  margin-bottom: 2.5rem;
-}
+header { border-bottom: 1px solid var(--line); padding-bottom: 1.5rem; margin-bottom: 2.5rem; }
 h1 {
-  font-family: var(--sans);
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  margin: 0 0 0.25rem;
-  color: var(--accent);
+  font-family: var(--sans); font-size: 1.4rem; font-weight: 600;
+  letter-spacing: 0.02em; margin: 0 0 0.25rem; color: var(--accent);
+  text-transform: uppercase;
 }
 .tagline { font-style: italic; color: var(--muted); margin: 0; font-size: 1.05rem; }
-.crumb {
-  font-family: var(--sans); font-size: 0.85rem; color: var(--muted);
-  margin: 0 0 0.9rem;
-}
+.crumb { font-family: var(--sans); font-size: 0.85rem; color: var(--muted); margin: 0 0 0.9rem; }
 .crumb a { color: var(--muted); }
-h2 {
-  font-family: var(--sans);
-  font-size: 1.15rem;
-  font-weight: 600;
-  margin: 2.5rem 0 0.75rem;
-  color: var(--accent);
-}
-h3 {
-  font-family: var(--sans); font-size: 1.1rem; font-weight: 600;
-  margin: 0 0 0.4rem; color: var(--accent);
-}
+h2 { font-family: var(--sans); font-size: 1.15rem; font-weight: 600; margin: 2.5rem 0 0.75rem; color: var(--accent); }
 p { margin: 0 0 0.85rem; }
 a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
 a:hover { text-decoration: none; }
 .intro { font-size: 1.05rem; margin-bottom: 1.5rem; }
 
-.weeks { display: grid; gap: 1.25rem; margin: 1.25rem 0 0; }
-.week {
+.codebooks { display: grid; gap: 1.25rem; margin: 1rem 0 0; }
+.codebook {
   border: 1px solid var(--line); border-radius: 4px;
-  padding: 1.25rem 1.5rem; background: #fff;
+  padding: 1.25rem 1.5rem; background: #fff; position: relative;
 }
-.week .fm {
-  font-family: var(--sans); font-size: 0.75rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted);
-  margin: 0 0 0.35rem;
+.card-ico { position: absolute; top: 1.15rem; right: 1.35rem; width: 2.6rem; height: 2.6rem; }
+.codebook:has(.card-ico) h3 { padding-right: 3.2rem; }
+.codebook h3 {
+  font-family: var(--sans); font-weight: 600;
+  margin: 0 0 0.5rem; font-size: 1.1rem; color: var(--accent);
 }
-.week .triad {
-  font-family: var(--sans); font-size: 0.85rem; color: var(--muted);
-  margin: 0 0 0.6rem;
+.codebook p { font-size: 0.97rem; }
+.codebook .question { font-style: italic; color: var(--muted); margin: 0 0 0.5rem; }
+.anchors { font-family: var(--sans); font-size: 0.82rem; color: var(--muted); margin: 0.5rem 0 0; }
+.anchors strong { color: var(--accent); font-weight: 600; }
+.anchors .fep { white-space: nowrap; }
+.fep-ico { width: 1.05em; height: 1.05em; vertical-align: -0.18em; margin-right: 0.22em; }
+.listen {
+  display: flex; align-items: center; gap: 0.35rem; margin: 0.9rem 0 0;
+  font-family: var(--sans); font-size: 0.8rem; color: var(--muted);
 }
-.week p { font-size: 0.97rem; margin-bottom: 0.85rem; }
+.listen-ico { width: 1.05em; height: 1.05em; }
+.cta-row { margin-top: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .btn {
-  display: inline-block; font-family: var(--sans); font-size: 0.85rem;
+  display: inline-block; padding: 0.4rem 0.85rem;
+  font-family: var(--sans); font-size: 0.85rem; font-weight: 500;
   border: 1px solid var(--accent); border-radius: 3px;
-  padding: 0.35rem 0.75rem; margin: 0 0.4rem 0.4rem 0;
-  color: var(--accent); text-decoration: none; background: #fff;
+  text-decoration: none; background: #fff; color: var(--accent);
+  transition: background 0.15s;
 }
 .btn:hover { background: var(--accent-bg); text-decoration: none; }
-.btn .min { color: var(--muted); font-size: 0.92em; }
+/* ea-meditations marks its main action .btn-primary but never defines it, so it renders
+   flat there. Defined here so the worksheet is visibly the thing to click. */
+.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary:hover { background: #23425f; color: #fff; }
+.lic { margin: 0.7rem 0 0; }
+.lic a {
+  display: inline-flex; align-items: center; gap: 0.18rem;
+  font-family: var(--sans); font-size: 0.78rem; color: var(--muted); text-decoration: none;
+}
+.lic img { height: 1.3rem; width: auto; }
+.lic span { margin-left: 0.3rem; }
+.lic a:hover span { text-decoration: underline; }
 
 ol.steps { margin: 1rem 0 0; padding-left: 1.3rem; }
 ol.steps li { margin-bottom: 0.7rem; }
 ol.steps strong { font-family: var(--sans); font-size: 0.92rem; }
-
 .note {
-  background: var(--accent-bg);
-  border-left: 3px solid var(--accent);
-  padding: 1rem 1.25rem;
-  margin: 1.5rem 0;
-  border-radius: 0 3px 3px 0;
+  background: var(--accent-bg); border-left: 3px solid var(--accent);
+  padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 3px 3px 0;
 }
 .note p:last-child { margin-bottom: 0; }
 .note .lbl {
   font-family: var(--sans); font-size: 0.78rem; font-weight: 600;
-  text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent);
-  margin: 0 0 0.4rem;
+  text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); margin: 0 0 0.4rem;
 }
 ul.plain { margin: 0.75rem 0 0; padding-left: 1.2rem; }
 ul.plain li { margin-bottom: 0.4rem; font-size: 0.97rem; }
-
-.ref-h {
-  font-family: var(--sans); font-size: 1rem; color: var(--accent);
-  margin: 1.6rem 0 0.6rem;
-}
-.apa-entry {
-  font-size: 0.88rem; line-height: 1.45;
-  padding-left: 1.4rem; text-indent: -1.4rem; margin: 0 0 0.6rem;
-}
+.ref-h { font-family: var(--sans); font-size: 1rem; color: var(--accent); margin: 1.6rem 0 0.6rem; }
+.apa-entry { font-size: 0.88rem; line-height: 1.45; padding-left: 1.4rem; text-indent: -1.4rem; margin: 0 0 0.6rem; }
 .apa-entry a { color: var(--accent); word-break: break-word; }
 .caveat { color: #8a5a2b; }
 .aside { font-size: 0.88rem; color: var(--muted); margin-top: 1rem; }
-
 footer {
   margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line);
   font-size: 0.87rem; color: var(--muted); font-family: var(--sans);
 }
 footer p { margin: 0 0 0.5rem; }
+/* --- influences faces, as on /ea-meditations/ --- */
+.influences { margin-top: 2.5rem; }
+.influences h2 { margin-bottom: 0.2rem; }
+.influences-sub { font-style: italic; color: var(--muted); margin: 0 0 1rem; }
+.face-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem 0.5rem; margin: 1rem 0 1.5rem; }
+.face-grid figure { margin: 0; text-align: center; }
+.face-grid img { width: 92px; height: 92px; }
+.face-grid figcaption { font-family: var(--sans); font-size: 0.8rem; margin-top: 0.35rem; line-height: 1.3; }
+.face-grid figcaption strong { display: block; color: var(--accent); }
+.face-grid figcaption span { color: var(--muted); font-size: 0.74rem; }
+.face-grid a { text-decoration: none; color: inherit; display: block; cursor: pointer; }
+.face-grid a:hover figcaption strong { text-decoration: underline; }
+
+/* --- floating section nav, as on /ea-meditations/ --- */
+.sidenav {
+  position: sticky; top: .6rem; z-index: 900; margin: 0 0 1.75rem;
+  background: #fff; border: 1px solid var(--line); border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.05); font-family: var(--sans);
+}
+.sidenav-toggle {
+  display: flex; align-items: center; justify-content: space-between; gap: .5rem;
+  width: 100%; background: none; border: none; padding: .65rem 1rem;
+  font-family: var(--sans); font-size: .9rem; font-weight: 600; color: var(--accent);
+  cursor: pointer;
+}
+.sidenav-burger { font-size: 1.1rem; line-height: 1; }
+.sidenav-title { display: none; }
+.sidenav-list {
+  list-style: none; margin: 0; padding: 0; display: none;
+  border-top: 1px solid var(--line); max-height: 60vh; overflow-y: auto;
+}
+.sidenav.open .sidenav-list { display: block; }
+.sidenav-list li:not(:last-child) a { border-bottom: 1px solid #eee; }
+.sidenav-list a { display: block; padding: .55rem 1rem; font-size: .86rem; text-decoration: none; color: var(--text); }
+.sidenav-list a:hover, .sidenav-list a.active { background: var(--accent-bg); color: var(--accent); }
+.sidenav-sub { list-style: none; margin: 0; padding: 0; }
+.sidenav-sub a { padding-left: 2rem; font-size: .82rem; color: var(--muted); }
+.nav-ico { width: 1.1em; height: 1.1em; vertical-align: -0.2em; margin-right: 0.45em; }
+
 @media (max-width: 480px) {
   body { padding: 1.5rem 1rem 3rem; }
   html { font-size: 16px; }
+  .face-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1200px) {
+  .sidenav {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    left: max(1.5rem, calc((100vw - 720px) / 2 - 210px));
+    width: 190px; margin: 0; background: none; border: none;
+    border-radius: 0; box-shadow: none;
+  }
+  .sidenav-toggle { display: none; }
+  .sidenav-title {
+    display: block; font-family: var(--sans); font-size: .7rem;
+    text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
+    margin: 0 0 .5rem .85rem;
+  }
+  .sidenav-list { display: block; border-top: none; max-height: none; overflow: visible; border-left: 2px solid var(--line); }
+  .sidenav-list li:not(:last-child) a { border-bottom: none; }
+  .sidenav-list a {
+    padding: .3rem .85rem; font-size: .82rem; color: var(--muted);
+    border-left: 2px solid transparent; margin-left: -2px; line-height: 1.35;
+  }
+  .sidenav-list a:hover { background: none; color: var(--accent); }
+  .sidenav-list a.active { background: none; color: var(--accent); font-weight: 600; border-left-color: var(--accent); }
+  .sidenav-sub a { padding-left: 1.7rem; font-size: .78rem; }
 }
 </style>
 </head>
 <body>
+<nav class="sidenav" id="sidenav" aria-label="On this page">
+  <button class="sidenav-toggle" type="button" aria-expanded="false" aria-controls="sidenav-list">
+    <span>On this page</span><span class="sidenav-burger" aria-hidden="true">&#9776;</span>
+  </button>
+  <p class="sidenav-title">On this page</p>
+  <ul class="sidenav-list" id="sidenav-list">
+    <li><a href="#weeks">The four weeks</a>
+      <ul class="sidenav-sub">
+        <li><a href="#week1"><img class="nav-ico" src="/ea-meditations/icons/fm1.svg" alt="">Can I be?</a></li>
+        <li><a href="#week2"><img class="nav-ico" src="/ea-meditations/icons/fm2.svg" alt="">Do I like being?</a></li>
+        <li><a href="#week3"><img class="nav-ico" src="/ea-meditations/icons/fm3.svg" alt="">Am I allowed to be me?</a></li>
+        <li><a href="#week4"><img class="nav-ico" src="/ea-meditations/icons/fm4.svg" alt="">For what should I live?</a></li>
+      </ul>
+    </li>
+    <li><a href="#howto">Four moments each week</a></li>
+    <li><a href="#notthis">What this is not</a></li>
+    <li><a href="#influences">Influences</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ul>
+</nav>
+
 <main>
 
 <header>
@@ -140,69 +210,107 @@ footer p { margin: 0 0 0.5rem; }
 </header>
 
 <section class="intro">
-  <p>Pilots do not run a checklist because they are bad at flying. They run it because the
-  cost of finding out mid-air is too high. This is the same idea, for the four weeks before a
-  journey.</p>
+  <p>If pilots can run a checklist, so can we. Mid-flight whoopsies can be tricky to
+  handle.</p>
+  <p>Preparation is more than set and setting. In the four weeks before a journey, we can
+  slow down, tune in and reflect.</p>
   <p>The twelve conditions come from Alfried Längle's Existential Analysis. His account is
   that a person needs four things in order to say yes to their own existence, and that each
   of the four rests on three conditions. Twelve in all. They were being asked in consulting
   rooms for decades before anyone pointed them at psychedelics.</p>
-  <p><a class="btn" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Checklist%20-%20CC%20BY-NC-ND%204.0.pdf">Download the whole booklet (PDF, 7 pages)</a></p>
+  <p><a class="btn btn-primary" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Checklist%20-%20CC%20BY-NC-ND%204.0.pdf">Download the whole booklet (PDF, 7 pages)</a></p>
 </section>
 
-<h2>Four weeks, four meditations, twelve questions</h2>
-<p>One Fundamental Motivation a week, in order. They build on one another: the second assumes
-the first, and the fourth assumes all three. Please listen to each meditation before you look
-at that week's questions.</p>
+<h2 id="weeks">Four weeks, four meditations, twelve questions</h2>
+<p>One Fundamental Motivation a week, in order. They build on one another: the second
+assumes the first, and the fourth assumes all three. Please listen to each meditation before
+you look at that week's questions.</p>
 
-<section class="weeks">
+<section class="codebooks">
 
-  <article class="week">
-    <p class="fm">Week 1 &middot; FM1 &middot; Grounded &middot; The World</p>
-    <h3>Can I be?</h3>
-    <p class="triad">Support &middot; Space &middot; Protection</p>
-    <p>The ground floor. Whether the world holds you, or whether you are holding yourself
-    up.</p>
-    <a class="btn" href="https://doi.org/10.5281/zenodo.20544710">Meditation <span class="min">15&ndash;20 min</span></a>
-    <a class="btn" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%201%20Can%20I%20Be%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
-  </article>
+<article class="codebook" id="week1">
+  <img class="card-ico" src="/ea-meditations/icons/fm1.svg" alt="">
+  <h3>Week 1 &middot; Can I be?</h3>
+  <p class="question">FM1 &middot; Grounded &middot; The World</p>
+  <p>The ground floor. Whether the world holds you, or whether you are holding yourself
+  up.</p>
+  <p class="anchors">This week: <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/support.svg" alt=""><strong>Support</strong></span> &middot; <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/space.svg" alt=""><strong>Space</strong></span> &middot; <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/protection.svg" alt=""><strong>Protection</strong></span></p>
+  <p class="listen"><img class="listen-ico" src="/ea-meditations/icons/headset.svg" alt="">Listen first &middot; 17 min</p>
+  <audio controls preload="none" style="width:100%; margin-top:0.2rem">
+    <source src="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM1%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" type="audio/mp4">
+    Your browser can't play this audio - <a href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM1%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a">download the recording</a>.
+  </audio>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%201%20Can%20I%20Be%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
+    <a class="btn" href="/ea-meditations/fm1/">Read along</a>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20544710">DOI</a>
+  </div>
+</article>
 
-  <article class="week">
-    <p class="fm">Week 2 &middot; FM2 &middot; Relationships &middot; Life</p>
-    <h3>Do I like being?</h3>
-    <p class="triad">Time &middot; Closeness &middot; Relating</p>
-    <p>Not whether life is going well, but whether you are in touch with it, and whether
-    anything still reaches you.</p>
-    <a class="btn" href="https://doi.org/10.5281/zenodo.20544714">Meditation <span class="min">30&ndash;35 min</span></a>
-    <a class="btn" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%202%20Do%20I%20Like%20Being%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
-  </article>
+<article class="codebook" id="week2">
+  <img class="card-ico" src="/ea-meditations/icons/fm2.svg" alt="">
+  <h3>Week 2 &middot; Do I like being?</h3>
+  <p class="question">FM2 &middot; Relationships &middot; Life</p>
+  <p>Not whether life is going well, but whether you are in touch with it, and whether
+  anything still reaches you.</p>
+  <p class="anchors">This week: <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/time.svg" alt=""><strong>Time</strong></span> &middot; <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/closeness.svg" alt=""><strong>Closeness</strong></span> &middot; <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/relationship.svg" alt=""><strong>Relating</strong></span></p>
+  <p class="listen"><img class="listen-ico" src="/ea-meditations/icons/headset.svg" alt="">Listen first &middot; 31 min</p>
+  <audio controls preload="none" style="width:100%; margin-top:0.2rem">
+    <source src="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM2%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" type="audio/mp4">
+    Your browser can't play this audio - <a href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM2%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a">download the recording</a>.
+  </audio>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%202%20Do%20I%20Like%20Being%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
+    <a class="btn" href="/ea-meditations/fm2/">Read along</a>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20544714">DOI</a>
+  </div>
+</article>
 
-  <article class="week">
-    <p class="fm">Week 3 &middot; FM3 &middot; Offer &middot; The Person</p>
-    <h3>Am I allowed to be me?</h3>
-    <p class="triad">Attention &middot; Appreciation &middot; Justice</p>
-    <p>Whether you have the right to be who you actually are, in front of other people,
-    without editing or masking.</p>
-    <a class="btn" href="https://doi.org/10.5281/zenodo.20544716">Meditation <span class="min">35&ndash;40 min</span></a>
-    <a class="btn" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%203%20May%20I%20Be%20Me%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
-  </article>
+<article class="codebook" id="week3">
+  <img class="card-ico" src="/ea-meditations/icons/fm3.svg" alt="">
+  <h3>Week 3 &middot; Am I allowed to be me?</h3>
+  <p class="question">FM3 &middot; Offer &middot; The Person</p>
+  <p>Whether you have the right to be who you actually are, in front of other people,
+  without editing or masking.</p>
+  <p class="anchors">This week: <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/attention.svg" alt=""><strong>Attention</strong></span> &middot; <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/appreciation.svg" alt=""><strong>Appreciation</strong></span> &middot; <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/justice.svg" alt=""><strong>Justice</strong></span></p>
+  <p class="listen"><img class="listen-ico" src="/ea-meditations/icons/headset.svg" alt="">Listen first &middot; 37 min</p>
+  <audio controls preload="none" style="width:100%; margin-top:0.2rem">
+    <source src="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM3%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" type="audio/mp4">
+    Your browser can't play this audio - <a href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM3%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a">download the recording</a>.
+  </audio>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%203%20May%20I%20Be%20Me%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
+    <a class="btn" href="/ea-meditations/fm3/">Read along</a>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20544716">DOI</a>
+  </div>
+</article>
 
-  <article class="week">
-    <p class="fm">Week 4 &middot; FM4 &middot; Wholeness &middot; Meaning</p>
-    <h3>For what should I live?</h3>
-    <p class="triad">Greater Context &middot; Field of Activity &middot; Future Value</p>
-    <p>What your life is for. Not in the abstract, but the thing that is actually asking to
-    be done.</p>
-    <a class="btn" href="https://doi.org/10.5281/zenodo.20544718">Meditation <span class="min">40&ndash;45 min</span></a>
-    <a class="btn" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%204%20What%20Should%20I%20Live%20For%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
-  </article>
+<article class="codebook" id="week4">
+  <img class="card-ico" src="/ea-meditations/icons/fm4.svg" alt="">
+  <h3>Week 4 &middot; For what should I live?</h3>
+  <p class="question">FM4 &middot; Wholeness &middot; Meaning</p>
+  <p>What your life is for. Not in the abstract, but the thing that is actually asking to be
+  done.</p>
+  <p class="anchors">This week: <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/structure.svg" alt=""><strong>Greater Context</strong></span> &middot; <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/field.svg" alt=""><strong>Field of Activity</strong></span> &middot; <span class="fep"><img class="fep-ico" src="/ea-meditations/icons/value.svg" alt=""><strong>Future Value</strong></span></p>
+  <p class="listen"><img class="listen-ico" src="/ea-meditations/icons/headset.svg" alt="">Listen first &middot; 44 min</p>
+  <audio controls preload="none" style="width:100%; margin-top:0.2rem">
+    <source src="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM4%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a" type="audio/mp4">
+    Your browser can't play this audio - <a href="/ea-meditations/audio/Graham%20Nelson-Zutter%20-%20EA%20FM4%20Meditation%20-%20CC%20BY-NC-ND%204.0.m4a">download the recording</a>.
+  </audio>
+  <div class="cta-row">
+    <a class="btn btn-primary" href="Graham%20Nelson-Zutter%20-%20EA%20Preflight%20Week%204%20What%20Should%20I%20Live%20For%20-%20CC%20BY-NC-ND%204.0.pdf">Worksheet (PDF)</a>
+    <a class="btn" href="/ea-meditations/fm4/">Read along</a>
+    <a class="btn" href="https://doi.org/10.5281/zenodo.20544718">DOI</a>
+  </div>
+  <p class="lic"><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" aria-label="CC BY-NC-ND 4.0"><img src="/cc-icons/cc.png" alt="" width="20" height="20"><img src="/cc-icons/by.png" alt="" width="20" height="20"><img src="/cc-icons/nc.png" alt="" width="20" height="20"><img src="/cc-icons/nc-eu.png" alt="" width="20" height="20"><img src="/cc-icons/nd.png" alt="" width="20" height="20"><span>CC BY-NC-ND 4.0</span></a></p>
+</article>
 
 </section>
 
-<p class="aside">All four meditations, with transcripts and captions, are at
+<p class="aside">The meditations, with full transcripts and captions, live at
 <a href="/ea-meditations/">research.aestra.ca/ea-meditations</a>.</p>
 
-<h2>Four moments each week</h2>
+<h2 id="howto">Four moments each week</h2>
 <ol class="steps">
   <li><strong>Tune in.</strong> Listen to the meditation for that Fundamental Motivation.
     Nothing to answer yet.</li>
@@ -224,7 +332,7 @@ at that week's questions.</p>
   who knows you well.</p>
 </div>
 
-<h2>What this is not</h2>
+<h2 id="notthis">What this is not</h2>
 <ul class="plain">
   <li>Not a test, and not a score. Nothing here adds up to a number.</li>
   <li>Not a diagnosis. It describes what you can say today, not what is true of you.</li>
@@ -234,7 +342,19 @@ at that week's questions.</p>
     where you live is your own responsibility.</li>
 </ul>
 
-<h2>Sources</h2>
+<section class="influences" id="influences">
+  <h2>Influences &amp; Sources</h2>
+  <p class="influences-sub">The people this rests on, in two traditions</p>
+  <div class="face-grid">
+    <a href="#sources" title="Jump to sources"><figure><img src="/ea-meditations/influences/frankl.png" alt="Viktor Frankl" width="92" height="92"><figcaption><strong>Viktor Frankl</strong><span>Logotherapy</span></figcaption></figure></a>
+    <a href="#sources" title="Jump to sources"><figure><img src="/ea-meditations/influences/langle.png" alt="Alfried L&auml;ngle" width="92" height="92"><figcaption><strong>Alfried L&auml;ngle</strong><span>The Four Fundamental Motivations</span></figcaption></figure></a>
+    <a href="#sources" title="Jump to sources"><figure><img src="influences/buber.png" alt="Martin Buber" width="92" height="92"><figcaption><strong>Martin Buber</strong><span>Ich und Du, &ldquo;I and Thou&rdquo;</span></figcaption></figure></a>
+    <a href="#sources" title="Jump to sources"><figure><img src="influences/sabina.png" alt="Mar&iacute;a Sabina Magdalena Garc&iacute;a" width="92" height="92"><figcaption><strong>Mar&iacute;a Sabina Magdalena Garc&iacute;a</strong><span>Mazatec curandera, Huautla de Jim&eacute;nez</span></figcaption></figure></a>
+    <a href="#sources" title="Jump to sources"><figure><img src="influences/marshall.png" alt="Elder Albert Marshall" width="92" height="92"><figcaption><strong>Elder Albert Marshall</strong><span>Etuaptmumk, Two-Eyed Seeing</span></figcaption></figure></a>
+  </div>
+</section>
+
+<h2 id="sources">Sources</h2>
 <p>The structure is Längle's and the questions were already written. Almost nothing here was
 invented for the talk.</p>
 
@@ -333,5 +453,44 @@ National Library of Israel, Jerusalem / Courtesy of the Martin Buber Literary Es
 </footer>
 
 </main>
+<script>
+(function () {
+  var nav = document.getElementById('sidenav');
+  if (!nav) return;
+  var toggle = nav.querySelector('.sidenav-toggle');
+  var links = Array.prototype.slice.call(nav.querySelectorAll('.sidenav-list a'));
+
+  toggle.addEventListener('click', function () {
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  links.forEach(function (a) {
+    a.addEventListener('click', function () {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  var map = {};
+  var targets = links.map(function (a) {
+    var id = a.getAttribute('href').slice(1);
+    var el = document.getElementById(id);
+    if (el) map[id] = a;
+    return el;
+  }).filter(Boolean);
+
+  if ('IntersectionObserver' in window && targets.length) {
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove('active'); });
+          if (map[en.target.id]) map[en.target.id].classList.add('active');
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px', threshold: 0 });
+    targets.forEach(function (t) { obs.observe(t); });
+  }
+})();
+</script>
 </body>
 </html>
